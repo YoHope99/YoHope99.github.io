@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[我的第一篇博客文章]]></title>
-    <url>%2F2019%2F07%2F01%2F%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%2F</url>
-    <content type="text"><![CDATA[第一章内容 第二章内容 参考文献http://www.baidu.com]]></content>
+    <title><![CDATA[hexo博客搭建]]></title>
+    <url>%2F2019%2F07%2F01%2Fhexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[Hexo+GitHub搭建个人博客 for Windowshexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 绑定一下github,就可以让别人通过你自定义的域名来访问你的博客, 我使用的正是Hexo的框架,我的博客地址 : https://YoHope99.github.io 1.安装 node.jsnode.js 官方网站: https://nodejs.org/zh-cn/ node是我们搭建博客必须的一个插件,下载长期支持版就ok了,安装很简单,与其他软件没区别,一直点下一步就好了 安装完成后除了node.js本身,还有npm管理器 cmd输入npm -v 查看一下版本，我这里的版本是6.9.0]]></content>
   </entry>
 </search>
