@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[hexo博客搭建]]></title>
-    <url>%2F2019%2F07%2F01%2Fhexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
-    <content type="text"><![CDATA[Hexo+GitHub搭建个人博客 for Windowshexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 绑定一下github,就可以让别人通过你自定义的域名来访问你的博客, 我使用的正是Hexo的框架,我的博客地址 : https://YoHope99.github.io 1.安装 node.jsnode.js 官方网站: https://nodejs.org/zh-cn/ node是我们搭建博客必须的一个插件,下载长期支持版就ok了,安装很简单,与其他软件没区别,一直点下一步就好了 安装完成后除了node.js本身,还有npm管理器 cmd输入npm -v 查看一下版本，我这里的版本是6.9.0]]></content>
+    <title><![CDATA[Java开发环境搭建]]></title>
+    <url>%2F2019%2F07%2F02%2FJava%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[JDk的安装与配置1.获取JDK开发工具包（1）打开任意一款浏览器，到Java官网，打开Java官网主页，单击右上方的“ Java下载 ”项，进入最新的J2SE JDK下载页面； （2）单击“ [jdk-11.0.3_windows-x64_bin.exe](javascript: void(0)) ”文件名，即可下载[jdk-11.0.3_windows-x64_bin.exe](javascript: void(0))可执行文件。 2.安装JDK&emsp;&emsp;&emsp;找到下载的JDK文件[jdk-11.0.3_windows-x64_bin.exe](javascript: void(0))即可安装（由于我之前已经安装了，在这里我就不再描述），需要注意的是在安装过程中安装路径可以默认也可以自定义路径以及安装组件的全部安装还是选择部分安装（建议组件全部安装，避免后面出现不必要的麻烦），JDK类库安装完成后，会提示安装JRE环境，点击【更改】按钮可以更改JRE的安装路径，点击【下一步】进入JRE的安装。 3.配置JDK&emsp;&emsp;&emsp;安装JDK后，需要设置JAVA_Home、CLASSPATH以及PATH值（注意是在环境变量操作，而不是用户变量）。JDK具体配置步骤如下： （1）在Windows桌面上右击【我的电脑】图标，在弹出菜单中选择【属性】命令，打开【系统属性】对话框。 （2）在【系统属性】对话框中选择【高级】选项卡，如图①所示，点击【环境变量按钮】，打开【环境变量】对话框，如图②所示。 （3）在【环境变量】对话框的【系统变量】选项区域中，单击【新建】按钮，在【变量名】文本框中输入“ JAVA_HOME ”，在【变量值】文本框中输入“ C:\Program Files\Java\jdk1.8.0_121 ”（这个值是你安装JDK的路径），单击确定完成，如图③所示。 (4)在【环境变量】对话框的【系统变量】选项区域中，单击【新建】按钮，在【变量名】文本框中输入“ CLASSPATH ”，在【变量值】文本框中输入“ .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar ”，单击确定完成，如图④所示。 （5）在【环境变量】对话框的【系统变量】选项区域中选中变量“ Path ”，单击【编辑】按钮，在弹出的【编辑系统环境变量】对话框中加入“ %JAVA_HOME%\bin;”(即JDK bin目录所在的路径，注意若该路径为Path的最后一项则不需要加“ ; ”)，我这里加在最前面，因为放在前面可以改变它的优先级，如图⑤所示。 （6）检测JDK是否配置成功，可以打开命令提示符窗口，输入“ javac ”命令，如果配置成功，会出现当前javac命令相关的参数说明，如图⑥所示。 知识延伸（1）设置JAVA_HOME变量的作用是在其他变量中若要用到JDK的安装路径时，可用JAVA_HOME变量的值来替代换，使用时用%JAVA_HOME%表示。这样设置的优点是若改变了JDK的安装路径，只需要修改JAVA_HOME变量的值，而CLASSPATH及Path中的值不用修改。 （2）设置CLASSPATH主要用于说明JDK中所要用的类的位置，变量中的“ .; ”是不能省略的，“ . ”主要用于便是当前目录，而“ ; ”是各个部分的分隔符。]]></content>
   </entry>
 </search>
