@@ -1,61 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>浅谈设计模式</title>
-      <link href="/2019/07/03/%E6%B5%85%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-      <url>/2019/07/03/%E6%B5%85%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
-      
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在这篇文章中，我主要讲述以下内容：</p><ul><li>引言</li><li>设计模式的诞生与发展</li><li>设计模式的定义与GoF23种设计模式</li><li>设计模式的优点</li></ul><h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><h3 id="从两个实例说起："><a href="#从两个实例说起：" class="headerlink" title="从两个实例说起："></a>从两个实例说起：</h3><h4 id="1-实例一"><a href="#1-实例一" class="headerlink" title="1. 实例一"></a>1. 实例一</h4><p><strong>实例说明</strong></p><p>某软件公司要开发一个跨平台图像浏览系统，要求该系统能够显示BMP、JPG、GIF、PNG等多种格式的文件，<br>并且能够在Windows、Linux、Unix等多个操作系统上运行。系统首先将各种格式的文件解析为像素矩阵(Matrix)，然后将像素矩阵显示在屏幕上，在不同的操作系统中可以调用不同的绘制函数来绘制像素矩阵。</p><p><strong>设计方案</strong></p><p><img src="http://pu0f1yxo8.bkt.clouddn.com/%E5%AE%9E%E4%BE%8B1.png" alt></p><p><strong>问题</strong></p><ul><li>采用了多层继承结构，导致系统中类的个数急剧增加，具体层的类的个数 =所支持的图像文件格式数×所支持的操作系统数；</li><li>系统扩展麻烦，无论是增加新的图像文件格式还是增加新的操作系统，都需要增加大量的具体类，这将导致系统变得非常庞大，增加运行和维护开销。</li></ul><h4 id="2-实例二"><a href="#2-实例二" class="headerlink" title="2. 实例二"></a>2. 实例二</h4><p><strong>实例说明</strong></p><p>•某软件公司为某电影院开发了一套影院售票系统，在该系统中需要为不同类型的用户提供不同的电影票打折方式，具体打折方案如下：</p><p>(1)学生凭学生证可享受票价8折优惠；</p><p>(2)年龄在10周岁及以下的儿童可享受每张票减免10元的优惠（原始票价需大于等于20元）；</p><p>(3)影院VIP用户除享受票价半价优惠外还可进行积分，积分累计到一定额度可换取电影院赠送的奖品。</p><p><strong><em>注意：该系统在将来可能还要根据需要引入新的打折方式。</em></strong></p><p><strong>设计方案</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MovieTicket</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">double</span> price;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//compute the price</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calculate</span><span class="params">(String type)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//student ticket</span></span><br><span class="line">        <span class="keyword">if</span>(type.equalsIgnoreCase(<span class="string">"student"</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.price * <span class="number">0.8</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//children ticket</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(type.equalsIgnoreCase(<span class="string">"children"</span>) &amp;&amp; <span class="keyword">this</span>.price &gt;= <span class="number">20</span> ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.price - <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="comment">//VIP ticket</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(type.equalsIgnoreCase(<span class="string">"vip"</span>)) &#123;</span><br><span class="line">            <span class="comment">//add points, code is omitted</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.price * <span class="number">0.5</span>;</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.price; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>问题</strong></p><p>(1) MovieTicket类的calculate()方法非常庞大，它包含各种打折算法的实现代码，在代码中出现了较长的条件转移语句，不利于测试和维护；</p><p>(2) 在增加新的打折算法或者对原有打折算法进行修改时必须修改MovieTicket类的源代码，系统的灵活性和可扩展性较差；</p><p>(3)算法的复用性差，如果另一个系统需要重用某些打折算法，只能通过对源代码进行复制粘贴来重用，无法单独重用其中的某个或某些算法。</p><h2 id="二、设计模式的诞生与发展"><a href="#二、设计模式的诞生与发展" class="headerlink" title="二、设计模式的诞生与发展"></a>二、设计模式的诞生与发展</h2><h3 id="设计模式的诞生"><a href="#设计模式的诞生" class="headerlink" title="设计模式的诞生"></a>设计模式的诞生</h3><ul><li>设计模式起源于建筑业而非软件业</li><li>设计模式之父——美国加利佛尼亚大学环境结构中心研究所所长ChristopherAlexander博士</li><li>《APattern Language: Towns, Buildings, Construction》——253个建筑和城市规划模式</li></ul><h3 id="设计模式的发展"><a href="#设计模式的发展" class="headerlink" title="设计模式的发展"></a>设计模式的发展</h3><ul><li>20世纪80年代末，软件工程界开始关注ChristopherAlexander等在这一住宅、公共建筑与城市规划领域的重大突破；</li><li>“四人组(Gang of Four，GoF，分别是Erich Gamma, Richard Helm, Ralph Johnson和John Vlissides)”于1994年归纳发表了23种在软件开发中使用频率较高的设计模式，旨在用模式来统一沟通面向对象方法在分析、设计和实现间的鸿沟。</li></ul><h2 id="三、设计模式的定义与GoF23种设计模式"><a href="#三、设计模式的定义与GoF23种设计模式" class="headerlink" title="三、设计模式的定义与GoF23种设计模式"></a>三、设计模式的定义与GoF23种设计模式</h2><h3 id="设计模式的定义"><a href="#设计模式的定义" class="headerlink" title="设计模式的定义"></a>设计模式的定义</h3><p><strong>Alexander给出了关于模式的经典定义：</strong></p><p>&emsp;&emsp;&emsp;每个模式都描述了一个在我们的环境中不断出现的问题，然后描述了该问题的解决方案的核心，通过这种方式，人们可以无数次地重用那些已有的解决方案，无须再重复相同的工作。</p><p><strong>通俗理解：</strong>模式是<strong>在特定环境下</strong>人们解决某类重复出现<strong>问题</strong>的一套成功或有效的<strong>解决方案</strong>。</p><h3 id="GoF23种设计模式"><a href="#GoF23种设计模式" class="headerlink" title="GoF23种设计模式"></a>GoF23种设计模式</h3><p><img src="http://pu0f1yxo8.bkt.clouddn.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E7%B1%BB.png" alt></p><p><strong><em>备注：创建型模式主要是用于创建对象，结构性模式主要用于处理类或对象的组合，行为型模式主要用于描述类或对象怎样交互和怎样分配职责</em></strong></p><h2 id="四、设计模式的优点"><a href="#四、设计模式的优点" class="headerlink" title="四、设计模式的优点"></a>四、设计模式的优点</h2><ul><li>融合了众多专家的经验，并以一种标准的形式供广大开发人员所用；</li><li>提供了一套通用的设计词汇和一种通用的语言，以方便开发人员之间进行沟通和交流，使得设计方案更加通俗易懂；</li><li>让人们可以更加简单方便地复用成功的设计和体系结构；</li><li>使得设计方案更加灵活，且易于修改；</li><li>将提高软件系统的开发效率和软件质量，且在一定程度上节约设计成本；</li><li>有助于初学者更深入地理解面向对象思想，方便阅读和学习现有类库与其他系统中的源代码，还可以提高软件的设计水平和代码质量。</li></ul><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>&emsp;&emsp;&emsp;本文只是对设计模式进行了一个概述，具体常用的23种设计模式需要读者业余时间慢慢学习，同时需要知道的是在将来的软件设计与开发中使用设计模式，是一个成功的软件工程师必备的技能，这也正是我们学习设计模式的目的。</p><p><strong>参考资料：Java设计模式——刘伟编著</strong></p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title><![CDATA[浅谈设计模式]]></title>
+    <url>%2F2019%2F07%2F03%2F%E6%B5%85%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[前言在这篇文章中，我主要讲述以下内容： 引言 设计模式的诞生与发展 设计模式的定义与GoF23种设计模式 设计模式的优点 引言从两个实例说起：1. 实例一实例说明 某软件公司要开发一个跨平台图像浏览系统，要求该系统能够显示BMP、JPG、GIF、PNG等多种格式的文件，并且能够在Windows、Linux、Unix等多个操作系统上运行。系统首先将各种格式的文件解析为像素矩阵(Matrix)，然后将像素矩阵显示在屏幕上，在不同的操作系统中可以调用不同的绘制函数来绘制像素矩阵。 设计方案 问题 采用了多层继承结构，导致系统中类的个数急剧增加，具体层的类的个数 =所支持的图像文件格式数×所支持的操作系统数； 系统扩展麻烦，无论是增加新的图像文件格式还是增加新的操作系统，都需要增加大量的具体类，这将导致系统变得非常庞大，增加运行和维护开销。 2. 实例二实例说明 •某软件公司为某电影院开发了一套影院售票系统，在该系统中需要为不同类型的用户提供不同的电影票打折方式，具体打折方案如下： (1)学生凭学生证可享受票价8折优惠； (2)年龄在10周岁及以下的儿童可享受每张票减免10元的优惠（原始票价需大于等于20元）； (3)影院VIP用户除享受票价半价优惠外还可进行积分，积分累计到一定额度可换取电影院赠送的奖品。 注意：该系统在将来可能还要根据需要引入新的打折方式。 设计方案 1234567891011121314151617181920212223public class MovieTicket&#123; private double price; //compute the price public double calculate(String type) &#123; //student ticket if(type.equalsIgnoreCase("student")) &#123; return this.price * 0.8; &#125; //children ticket else if(type.equalsIgnoreCase("children") &amp;&amp; this.price &gt;= 20 ) &#123; return this.price - 10; &#125; //VIP ticket else if(type.equalsIgnoreCase("vip")) &#123; //add points, code is omitted return this.price * 0.5; &#125; else &#123; return this.price; &#125; &#125;&#125; 问题 (1) MovieTicket类的calculate()方法非常庞大，它包含各种打折算法的实现代码，在代码中出现了较长的条件转移语句，不利于测试和维护； (2) 在增加新的打折算法或者对原有打折算法进行修改时必须修改MovieTicket类的源代码，系统的灵活性和可扩展性较差； (3)算法的复用性差，如果另一个系统需要重用某些打折算法，只能通过对源代码进行复制粘贴来重用，无法单独重用其中的某个或某些算法。 设计模式的诞生与发展设计模式的诞生 设计模式起源于建筑业而非软件业 设计模式之父——美国加利佛尼亚大学环境结构中心研究所所长ChristopherAlexander博士 《APattern Language: Towns, Buildings, Construction》——253个建筑和城市规划模式 设计模式的发展 20世纪80年代末，软件工程界开始关注ChristopherAlexander等在这一住宅、公共建筑与城市规划领域的重大突破； “四人组(Gang of Four，GoF，分别是Erich Gamma, Richard Helm, Ralph Johnson和John Vlissides)”于1994年归纳发表了23种在软件开发中使用频率较高的设计模式，旨在用模式来统一沟通面向对象方法在分析、设计和实现间的鸿沟。 设计模式的定义与GoF23种设计模式设计模式的定义Alexander给出了关于模式的经典定义： &emsp;&emsp;&emsp;每个模式都描述了一个在我们的环境中不断出现的问题，然后描述了该问题的解决方案的核心，通过这种方式，人们可以无数次地重用那些已有的解决方案，无须再重复相同的工作。 通俗理解：模式是在特定环境下人们解决某类重复出现问题的一套成功或有效的解决方案。 GoF23种设计模式 备注：创建型模式主要是用于创建对象，结构性模式主要用于处理类或对象的组合，行为型模式主要用于描述类或对象怎样交互和怎样分配职责 设计模式的优点 融合了众多专家的经验，并以一种标准的形式供广大开发人员所用； 提供了一套通用的设计词汇和一种通用的语言，以方便开发人员之间进行沟通和交流，使得设计方案更加通俗易懂； 让人们可以更加简单方便地复用成功的设计和体系结构； 使得设计方案更加灵活，且易于修改； 将提高软件系统的开发效率和软件质量，且在一定程度上节约设计成本； 有助于初学者更深入地理解面向对象思想，方便阅读和学习现有类库与其他系统中的源代码，还可以提高软件的设计水平和代码质量。 小结&emsp;&emsp;&emsp;本文只是对设计模式进行了一个概述，具体常用的23种设计模式需要读者业余时间慢慢学习，同时需要知道的是在将来的软件设计与开发中使用设计模式，是一个成功的软件工程师必备的技能，这也正是我们学习设计模式的目的。 参考资料：Java设计模式——刘伟编著]]></content>
       <categories>
-          
-          <category> 设计模式 </category>
-          
+        <category>设计模式</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> 设计模式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Java开发环境搭建</title>
-      <link href="/2019/07/02/Java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-      <url>/2019/07/02/Java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-      
-        <content type="html"><![CDATA[<h2 id="JDK的安装与配置"><a href="#JDK的安装与配置" class="headerlink" title="JDK的安装与配置"></a>JDK的安装与配置</h2><h3 id="1-获取JDK开发工具包"><a href="#1-获取JDK开发工具包" class="headerlink" title="1.获取JDK开发工具包"></a>1.获取JDK开发工具包</h3><p>（1）打开任意一款浏览器，到<a href="https://www.oracle.com/technetwork/cn/java/index.html" target="_blank" rel="noopener">Java官网</a>，打开Java官网主页，单击右上方的“ Java下载 ”项，进入最新的J2SE JDK下载页面；</p><p>（2）单击“ jdk-11.0.3_windows-x64_bin.exe ”文件名，即可下载 jdk-11.0.3_windows-x64_bin.exe可执行文件。</p><p><img src="http://pu0f1yxo8.bkt.clouddn.com/jdk.png" alt></p><a id="more"></a><h3 id="2-安装JDK"><a href="#2-安装JDK" class="headerlink" title="2.安装JDK"></a>2.安装JDK</h3><p>&emsp;&emsp;&emsp;找到下载的JDK文件jdk-11.0.3_windows-x64_bin.exe即可安装（由于我之前已经安装了，在这里我就不再描述），需要注意的是<strong>在安装过程中安装路径可以默认也可以自定义路径以及安装组件的全部安装还是选择部分安装</strong>（建议组件全部安装，避免后面出现不必要的麻烦），JDK类库安装完成后，会提示安装JRE环境，点击【更改】按钮可以更改JRE的安装路径，点击【下一步】进入JRE的安装。</p><h3 id="3-配置JDK"><a href="#3-配置JDK" class="headerlink" title="3.配置JDK"></a>3.配置JDK</h3><p>&emsp;&emsp;&emsp;安装JDK后，需要设置JAVA_Home、CLASSPATH以及PATH值<strong><em>（注意是在环境变量操作，而不是用户变量）</em></strong>。JDK具体配置步骤如下：</p><p>（1）在Windows桌面上右击【我的电脑】图标，在弹出菜单中选择【属性】命令，打开【系统属性】对话框。</p><p>（2）在【系统属性】对话框中选择【高级】选项卡，如图①所示，点击【环境变量按钮】，打开【环境变量】对话框，如图②所示。</p><p>  <img src="http://pu0f1yxo8.bkt.clouddn.com/%E7%B3%BB%E7%BB%9F%E5%B1%9E%E6%80%A7.png" alt><br>  <img src="http://pu0f1yxo8.bkt.clouddn.com/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" alt></p><p>（3）在【环境变量】对话框的【系统变量】选项区域中，单击【新建】按钮，在【变量名】文本框中输入“ JAVA_HOME ”，在【变量值】文本框中输入“ C:\Program Files\Java\jdk1.8.0_121 ”（这个值是你安装JDK的路径），单击确定完成，如图③所示。</p><p>  <img src="http://pu0f1yxo8.bkt.clouddn.com/JAVA_HOME.png" alt></p><p>(4)在【环境变量】对话框的【系统变量】选项区域中，单击【新建】按钮，在【变量名】文本框中输入“ CLASSPATH ”，在【变量值】文本框中输入“ .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar ”，单击确定完成，如图④所示。</p><p>  <img src="http://pu0f1yxo8.bkt.clouddn.com/CLASSPATH.png" alt></p><p>（5）在【环境变量】对话框的【系统变量】选项区域中选中变量“ Path ”，单击【编辑】按钮，在弹出的【编辑系统环境变量】对话框中加入“ %JAVA_HOME%\bin;”(即JDK bin目录所在的路径，注意若该路径为Path的最后一项则不需要加“ ; ”)，我这里加在最前面，因为放在前面可以改变它的优先级，如图⑤所示。</p><p>{  <img src="http://pu0f1yxo8.bkt.clouddn.com/Path.png" alt></p><p>（6）检测JDK是否配置成功，可以打开命令提示符窗口，输入“ javac ”命令，如果配置成功，会出现当前javac命令相关的参数说明，如图⑥所示。</p><p>  <img src="http://pu0f1yxo8.bkt.clouddn.com/test.png" alt></p><h2 id="知识延伸"><a href="#知识延伸" class="headerlink" title="知识延伸"></a>知识延伸</h2><p>（1）设置JAVA_HOME变量的作用是在其他变量中若要用到JDK的安装路径时，可用JAVA_HOME变量的值来替代换，使用时用%JAVA_HOME%表示。这样设置的优点是若改变了JDK的安装路径，只需要修改JAVA_HOME变量的值，而CLASSPATH及Path中的值不用修改。</p><p>（2）设置CLASSPATH主要用于说明JDK中所要用的类的位置，变量中的“ .; ”是不能省略的，“ . ”主要用于便是当前目录，而“ ; ”是各个部分的分隔符。</p>]]></content>
-      
-      
+      <tags>
+        <tag>Java</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java开发环境搭建]]></title>
+    <url>%2F2019%2F07%2F02%2FJava%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[JDK的安装与配置1.获取JDK开发工具包（1）打开任意一款浏览器，到Java官网，打开Java官网主页，单击右上方的“ Java下载 ”项，进入最新的J2SE JDK下载页面； （2）单击“ jdk-11.0.3_windows-x64_bin.exe ”文件名，即可下载 jdk-11.0.3_windows-x64_bin.exe可执行文件。 2.安装JDK&emsp;&emsp;&emsp;找到下载的JDK文件jdk-11.0.3_windows-x64_bin.exe即可安装（由于我之前已经安装了，在这里我就不再描述），需要注意的是在安装过程中安装路径可以默认也可以自定义路径以及安装组件的全部安装还是选择部分安装（建议组件全部安装，避免后面出现不必要的麻烦），JDK类库安装完成后，会提示安装JRE环境，点击【更改】按钮可以更改JRE的安装路径，点击【下一步】进入JRE的安装。 3.配置JDK&emsp;&emsp;&emsp;安装JDK后，需要设置JAVA_Home、CLASSPATH以及PATH值（注意是在环境变量操作，而不是用户变量）。JDK具体配置步骤如下： （1）在Windows桌面上右击【我的电脑】图标，在弹出菜单中选择【属性】命令，打开【系统属性】对话框。 （2）在【系统属性】对话框中选择【高级】选项卡，如图①所示，点击【环境变量按钮】，打开【环境变量】对话框，如图②所示。 （3）在【环境变量】对话框的【系统变量】选项区域中，单击【新建】按钮，在【变量名】文本框中输入“ JAVA_HOME ”，在【变量值】文本框中输入“ C:\Program Files\Java\jdk1.8.0_121 ”（这个值是你安装JDK的路径），单击确定完成，如图③所示。 (4)在【环境变量】对话框的【系统变量】选项区域中，单击【新建】按钮，在【变量名】文本框中输入“ CLASSPATH ”，在【变量值】文本框中输入“ .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar ”，单击确定完成，如图④所示。 （5）在【环境变量】对话框的【系统变量】选项区域中选中变量“ Path ”，单击【编辑】按钮，在弹出的【编辑系统环境变量】对话框中加入“ %JAVA_HOME%\bin;”(即JDK bin目录所在的路径，注意若该路径为Path的最后一项则不需要加“ ; ”)，我这里加在最前面，因为放在前面可以改变它的优先级，如图⑤所示。 { （6）检测JDK是否配置成功，可以打开命令提示符窗口，输入“ javac ”命令，如果配置成功，会出现当前javac命令相关的参数说明，如图⑥所示。 知识延伸（1）设置JAVA_HOME变量的作用是在其他变量中若要用到JDK的安装路径时，可用JAVA_HOME变量的值来替代换，使用时用%JAVA_HOME%表示。这样设置的优点是若改变了JDK的安装路径，只需要修改JAVA_HOME变量的值，而CLASSPATH及Path中的值不用修改。 （2）设置CLASSPATH主要用于说明JDK中所要用的类的位置，变量中的“ .; ”是不能省略的，“ . ”主要用于便是当前目录，而“ ; ”是各个部分的分隔符。]]></content>
       <categories>
-          
-          <category> Java </category>
-          
+        <category>Java</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> 环境配置 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>Java</tag>
+        <tag>环境配置</tag>
+      </tags>
+  </entry>
 </search>
