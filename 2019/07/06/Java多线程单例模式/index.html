@@ -102,6 +102,7 @@
 
 
   <meta name="description" content="前言这篇文章主要讲述基于Java语言实现多线程的单例模式。 单例模式的概述为什么需要单例模式&amp;emsp;&amp;emsp;&amp;emsp;对于一个软件系统中的某些类而言，只有一个实例很重要，例如一个系统只能有一个窗口管理器或文件系统，一个系统只能有一个集市工具或ID生成器等等。在Windows操作系统中就只能打开一个任务管理器窗口，如下图1所示。如果不使用机智对窗口对象进行唯一化，势必会弹出多个窗口。如果这">
+<meta name="keywords" content="Java,单例模式,多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java多线程单例模式">
 <meta property="og:url" content="http://YoHope99.github.io/2019/07/06/Java多线程单例模式/index.html">
@@ -111,7 +112,7 @@
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/Windows%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8.png">
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/%E9%A5%BF%E6%B1%89%E5%BC%8F%E5%8D%95%E4%BE%8B.png">
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/%E6%87%92%E6%B1%89%E5%BC%8F%E5%8D%95%E4%BE%8B.png">
-<meta property="og:updated_time" content="2019-07-06T01:04:00.526Z">
+<meta property="og:updated_time" content="2019-07-06T02:18:43.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java多线程单例模式">
 <meta name="twitter:description" content="前言这篇文章主要讲述基于Java语言实现多线程的单例模式。 单例模式的概述为什么需要单例模式&amp;emsp;&amp;emsp;&amp;emsp;对于一个软件系统中的某些类而言，只有一个实例很重要，例如一个系统只能有一个窗口管理器或文件系统，一个系统只能有一个集市工具或ID生成器等等。在Windows操作系统中就只能打开一个任务管理器窗口，如下图1所示。如果不使用机智对窗口对象进行唯一化，势必会弹出多个窗口。如果这">
@@ -424,12 +425,31 @@
                 
               
 
-              <time title="创建时间：2019-07-06 09:04:00" itemprop="dateCreated datePublished" datetime="2019-07-06T09:04:00+08:00">2019-07-06</time>
+              <time title="创建时间：2019-07-06 09:04:00 / 修改时间：10:18:43" itemprop="dateCreated datePublished" datetime="2019-07-06T09:04:00+08:00">2019-07-06</time>
             </span>
           
 
           
+            
 
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -465,6 +485,8 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章主要讲述基于Java语言实现多线程的单例模式。</p>
 <h2 id="单例模式的概述"><a href="#单例模式的概述" class="headerlink" title="单例模式的概述"></a>单例模式的概述</h2><h3 id="为什么需要单例模式"><a href="#为什么需要单例模式" class="headerlink" title="为什么需要单例模式"></a>为什么需要单例模式</h3><p>&emsp;&emsp;&emsp;对于一个软件系统中的某些类而言，只有一个实例很重要，例如一个系统只能有一个窗口管理器或文件系统，一个系统只能有一个集市工具或ID生成器等等。在Windows操作系统中就只能打开一个任务管理器窗口，如下图1所示。如果不使用机智对窗口对象进行唯一化，势必会弹出多个窗口。如果这些窗口显示的内容完全一致，则是重复对象，浪费内存资源；如果这些窗口显示的内容不一致，则意味着在某一瞬间系统有多个状态，与实际不符合，这会给用户带来误解，不知道哪一个才是真实的状态。因此有时确保系统中某个对象的唯一性（即一个类只能有一个实例）非常重要。</p>
 <p><img src="http://pu0f1yxo8.bkt.clouddn.com/Windows%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8.png" alt></p>
+<a id="more"></a>
+
 <h3 id="单例模式的定义"><a href="#单例模式的定义" class="headerlink" title="单例模式的定义"></a>单例模式的定义</h3><p>&emsp;&emsp;&emsp;确保一个类只有一个实例，并提供一个全局访问点来访问这个唯一实例。</p>
 <h2 id="多线程单例模式的实现"><a href="#多线程单例模式的实现" class="headerlink" title="多线程单例模式的实现"></a>多线程单例模式的实现</h2><h3 id="基于饿汉式单例"><a href="#基于饿汉式单例" class="headerlink" title="基于饿汉式单例"></a>基于饿汉式单例</h3><p><strong>实例代码</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Singleton s1, s2;</span><br><span class="line">		s1 = Singleton.getInstance();</span><br><span class="line">		s2 = Singleton.getInstance();</span><br><span class="line">		<span class="keyword">if</span>(s1 == s2)&#123;</span><br><span class="line">			System.out.println(<span class="string">"两个对象是相同实例"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"两个对象是不同实例"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -511,6 +533,19 @@
     
 
     <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/单例模式/" rel="tag"># 单例模式</a>
+          
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
+          
+        </div>
       
 
       
@@ -649,7 +684,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
