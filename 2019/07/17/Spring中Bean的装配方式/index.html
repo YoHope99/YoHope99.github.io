@@ -101,21 +101,21 @@
 
 
 
-  <meta name="description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配方式一：设置注入条件">
+  <meta name="description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YoHope">
 <meta property="og:url" content="http://YoHope99.github.io/2019/07/17/Spring中Bean的装配方式/index.html">
 <meta property="og:site_name" content="YoHope">
-<meta property="og:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配方式一：设置注入条件">
+<meta property="og:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png">
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/%E4%B8%BB%E8%A6%81%E6%B3%A8%E8%A7%A3.png">
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/%E6%B3%A8%E8%A7%A3%E8%A3%85%E9%85%8D.png">
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/autowire%E5%B1%9E%E6%80%A7.png">
-<meta property="og:updated_time" content="2019-07-17T11:27:00.281Z">
+<meta property="og:updated_time" content="2019-07-17T11:32:14.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YoHope">
-<meta name="twitter:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配方式一：设置注入条件">
+<meta name="twitter:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
 <meta name="twitter:image" content="http://pu0f1yxo8.bkt.clouddn.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png">
 
 
@@ -425,7 +425,7 @@
                 
               
 
-              <time title="创建时间：2019-07-17 15:33:52 / 修改时间：19:27:00" itemprop="dateCreated datePublished" datetime="2019-07-17T15:33:52+08:00">2019-07-17</time>
+              <time title="创建时间：2019-07-17 15:33:52 / 修改时间：19:32:14" itemprop="dateCreated datePublished" datetime="2019-07-17T15:33:52+08:00">2019-07-17</time>
             </span>
           
 
@@ -469,7 +469,9 @@
       
         <ol>
 <li><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如<strong>基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配）</strong>，本文章将主要讲解着三种装配方式的使用。</p>
-<h2 id="基于XML的装配"><a href="#基于XML的装配" class="headerlink" title="基于XML的装配"></a>基于XML的装配</h2><h3 id="方式一：设置注入"><a href="#方式一：设置注入" class="headerlink" title="方式一：设置注入"></a>方式一：设置注入</h3><p>条件：①Bean类必须有一个无参构造方法；②Bean类必须为属性提供setter方法。</p>
+<h2 id="基于XML的装配"><a href="#基于XML的装配" class="headerlink" title="基于XML的装配"></a>基于XML的装配</h2><a id="more"></a>
+
+<h3 id="方式一：设置注入"><a href="#方式一：设置注入" class="headerlink" title="方式一：设置注入"></a>方式一：设置注入</h3><p>条件：①Bean类必须有一个无参构造方法；②Bean类必须为属性提供setter方法。</p>
 <p><strong><em>在配置文件中，使用<property>元素来为每个属性注入值</property></em></strong></p>
 <h3 id="方式二：构造注入"><a href="#方式二：构造注入" class="headerlink" title="方式二：构造注入"></a>方式二：构造注入</h3><p>条件：Bean类必须提供有参构造方法</p>
 <p><strong><em>在配置文件中，使用<constructor-arg>元素来为参数注入值</constructor-arg></em></strong></p>
