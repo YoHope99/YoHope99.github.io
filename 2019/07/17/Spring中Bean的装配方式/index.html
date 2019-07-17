@@ -101,21 +101,22 @@
 
 
 
-  <meta name="description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
+  <meta name="description" content="前言   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
+<meta name="keywords" content="Java,Spring,Bean的装配">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YoHope">
+<meta property="og:title" content="Spring中Bean的装配方式">
 <meta property="og:url" content="http://YoHope99.github.io/2019/07/17/Spring中Bean的装配方式/index.html">
 <meta property="og:site_name" content="YoHope">
-<meta property="og:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
+<meta property="og:description" content="前言   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png">
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/%E4%B8%BB%E8%A6%81%E6%B3%A8%E8%A7%A3.png">
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/%E6%B3%A8%E8%A7%A3%E8%A3%85%E9%85%8D.png">
 <meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/autowire%E5%B1%9E%E6%80%A7.png">
-<meta property="og:updated_time" content="2019-07-17T11:32:14.197Z">
+<meta property="og:updated_time" content="2019-07-17T11:59:18.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YoHope">
-<meta name="twitter:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
+<meta name="twitter:title" content="Spring中Bean的装配方式">
+<meta name="twitter:description" content="前言   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
 <meta name="twitter:image" content="http://pu0f1yxo8.bkt.clouddn.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png">
 
 
@@ -136,7 +137,7 @@
   };
 </script>
 
-  <title> | YoHope</title>
+  <title>Spring中Bean的装配方式 | YoHope</title>
   
 
 
@@ -399,7 +400,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">Spring中Bean的装配方式
 
               
             
@@ -425,7 +426,7 @@
                 
               
 
-              <time title="创建时间：2019-07-17 15:33:52 / 修改时间：19:32:14" itemprop="dateCreated datePublished" datetime="2019-07-17T15:33:52+08:00">2019-07-17</time>
+              <time title="创建时间：2019-07-17 16:18:03 / 修改时间：19:59:18" itemprop="dateCreated datePublished" datetime="2019-07-17T16:18:03+08:00">2019-07-17</time>
             </span>
           
 
@@ -435,6 +436,21 @@
             
           
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -467,14 +483,13 @@
       
 
       
-        <ol>
-<li><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如<strong>基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配）</strong>，本文章将主要讲解着三种装配方式的使用。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如<strong>基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配）</strong>，本文章将主要讲解着三种装配方式的使用。</p>
 <h2 id="基于XML的装配"><a href="#基于XML的装配" class="headerlink" title="基于XML的装配"></a>基于XML的装配</h2><a id="more"></a>
 
-<h3 id="方式一：设置注入"><a href="#方式一：设置注入" class="headerlink" title="方式一：设置注入"></a>方式一：设置注入</h3><p>条件：①Bean类必须有一个无参构造方法；②Bean类必须为属性提供setter方法。</p>
-<p><strong><em>在配置文件中，使用<property>元素来为每个属性注入值</property></em></strong></p>
-<h3 id="方式二：构造注入"><a href="#方式二：构造注入" class="headerlink" title="方式二：构造注入"></a>方式二：构造注入</h3><p>条件：Bean类必须提供有参构造方法</p>
-<p><strong><em>在配置文件中，使用<constructor-arg>元素来为参数注入值</constructor-arg></em></strong></p>
+<h3 id="方式一：设置注入"><a href="#方式一：设置注入" class="headerlink" title="方式一：设置注入"></a>方式一：设置注入</h3><p>   条件：①Bean类必须有一个无参构造方法；②Bean类必须为属性提供setter方法。</p>
+<p>   <strong><em>在配置文件中，使用<property>元素来为每个属性注入值</property></em></strong></p>
+<h3 id="方式二：构造注入"><a href="#方式二：构造注入" class="headerlink" title="方式二：构造注入"></a>方式二：构造注入</h3><p>   条件：Bean类必须提供有参构造方法</p>
+<p>   <strong><em>在配置文件中，使用<constructor-arg>元素来为参数注入值</constructor-arg></em></strong></p>
 <h3 id="具体实现步骤如下"><a href="#具体实现步骤如下" class="headerlink" title="具体实现步骤如下"></a>具体实现步骤如下</h3><ol>
 <li><p>创建Java类User，提供有参、无参构造方法以及属性setter方法；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">package com.ssm.assemble;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class User &#123;</span><br><span class="line"></span><br><span class="line">    private String username;</span><br><span class="line">    private Integer password;</span><br><span class="line">    private List&lt;String&gt; list;</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * 1.使用构造注入</span><br><span class="line">     * 1.1提供带所有参数的有参构造方法。</span><br><span class="line">     */</span><br><span class="line">    public User(String username, Integer password, List&lt;String&gt; list) &#123;</span><br><span class="line">        super();</span><br><span class="line">        this.username = username;</span><br><span class="line">        this.password = password;</span><br><span class="line">        this.list = list;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * 2.使用设值注入</span><br><span class="line">     * 2.1提供默认空参构造方法 ;</span><br><span class="line">     * 2.2为所有属性提供setter方法。</span><br><span class="line">     */</span><br><span class="line">    public User() &#123;</span><br><span class="line">        super();</span><br><span class="line">    &#125;</span><br><span class="line">    public void setUsername(String username) &#123;</span><br><span class="line">        this.username = username;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setPassword(Integer password) &#123;</span><br><span class="line">        this.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setList(List&lt;String&gt; list) &#123;</span><br><span class="line">        this.list = list;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;User [username=&quot; + username + &quot;, password=&quot; + password +</span><br><span class="line">                &quot;, list=&quot; + list + &quot;]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -484,7 +499,8 @@
 </li>
 <li><p>创建测试类XmlBeanAssembleTest，测试程序；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package com.ssm.assemble;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line">public class XmlBeanAssembleTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 定义配置文件路径</span><br><span class="line">        String xmlPath = &quot;beans1.xml&quot;;</span><br><span class="line">        // 加载配置文件</span><br><span class="line">        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);</span><br><span class="line">        // 构造方式输出结果</span><br><span class="line">        System.out.println(applicationContext.getBean(&quot;user1&quot;));</span><br><span class="line">        // 设值方式输出结果</span><br><span class="line">        System.out.println(applicationContext.getBean(&quot;user2&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+
+<ol start="4">
 <li><p>运行效果。</p>
 <p><img src="http://pu0f1yxo8.bkt.clouddn.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png" alt></p>
 </li>
@@ -492,42 +508,50 @@
 <h2 id="基于注解的装配"><a href="#基于注解的装配" class="headerlink" title="基于注解的装配"></a>基于注解的装配</h2><p>　　由于基于XML的装配可能会导致XML配置文件过于臃肿，给后续的维护和升级带来一定的困难。因此，Spring提供了对Annotation（注解）技术的全面支持。</p>
 <p><img src="http://pu0f1yxo8.bkt.clouddn.com/%E4%B8%BB%E8%A6%81%E6%B3%A8%E8%A7%A3.png" alt> </p>
 <h3 id="具体实现步骤如下-1"><a href="#具体实现步骤如下-1" class="headerlink" title="具体实现步骤如下"></a>具体实现步骤如下</h3><ol>
-<li><p>创建数据访问（Dao）层接口UserDao；</p>
+<li>创建数据访问（Dao）层接口UserDao；</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">package com.ssm.annotation;</span><br><span class="line"></span><br><span class="line">public interface UserDao &#123;</span><br><span class="line">    public void save();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建数据访问（UserDao）层接口的实现类UserDaoImpl，并且在实现类前添加对应的注解@Repository(“userDao”)；</p>
+
+<ol start="2">
+<li>创建数据访问（UserDao）层接口的实现类UserDaoImpl，并且在实现类前添加对应的注解@Repository(“userDao”)；</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package com.ssm.annotation;</span><br><span class="line">import org.springframework.stereotype.Repository;</span><br><span class="line"></span><br><span class="line">@Repository(&quot;userDao&quot;)</span><br><span class="line">//@Repository(&quot;userDao&quot;)相当于配置文件中的:&lt;bean id=&quot;userDao&quot; class=&quot;com.ssm.annotation.UserDaoImpl&quot; /&gt;</span><br><span class="line"></span><br><span class="line">public class UserDaoImpl implements UserDao&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void save() &#123;</span><br><span class="line">        System.out.println(&quot;userdao...save...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建业务（Service）层接口UserService；</p>
-</li>
+
+<ol start="3">
+<li>创建业务（Service）层接口UserService；</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">package com.ssm.annotation;</span><br><span class="line"></span><br><span class="line">public interface UserService &#123;</span><br><span class="line">    public void save();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ol start="4">
-<li><p>创建业务（Service）层接口的实现类UserServiceImpl并添加属性对象UserDao的setter方法，并在实现类前添加对应的注解@Service(“userService”)和在类里面方法前添加对应的注解 @Resource(name=”userDao”)；</p>
+<li>创建业务（Service）层接口的实现类UserServiceImpl并添加属性对象UserDao的setter方法，并在实现类前添加对应的注解@Service(“userService”)和在类里面方法前添加对应的注解 @Resource(name=”userDao”)；</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package com.ssm.annotation;</span><br><span class="line"></span><br><span class="line">import javax.annotation.Resource;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line">@Service(&quot;userService&quot;)</span><br><span class="line">//相当于配置文件中的:&lt;bean id=&quot;userService&quot; class=&quot;com.ssm.annotation.UserServiceImpl&quot; /&gt;</span><br><span class="line"></span><br><span class="line">public class UserServiceImpl implements UserService&#123;</span><br><span class="line">    @Resource(name=&quot;userDao&quot;)</span><br><span class="line">    //当于配置文件中的:&lt;property name=&quot;userDao&quot;  ref=&quot;userDao&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    private UserDao userDao; </span><br><span class="line">    public void save() &#123;</span><br><span class="line">        //调用userDao中的save方法</span><br><span class="line">        this.userDao.save();</span><br><span class="line">        System.out.println(&quot;userservice....save...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setUserDao(UserDao userDao) &#123;</span><br><span class="line">        this.userDao = userDao;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建控制（Controller）层Java类UserController，并在实现类前添加对应的注解@Controller(“userController”)和在类里面方法前添加对应的注解 @Resource(name=”userService”)；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.ssm.annotation;</span><br><span class="line">import javax.annotation.Resource;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line"></span><br><span class="line">@Controller(&quot;userController&quot;)</span><br><span class="line">//相当于配置文件中的:&lt;bean id=&quot;userController&quot; class=&quot;com.ssm.annotation.UserController&quot; /&gt;</span><br><span class="line"></span><br><span class="line">public class UserController &#123;</span><br><span class="line">    @Resource(name=&quot;userService&quot;)</span><br><span class="line">    //当于配置文件中的:&lt;property name=&quot;userService&quot;  ref=&quot;userService&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    private UserService userService;</span><br><span class="line">    public void save()&#123;</span><br><span class="line">        this.userService.save();</span><br><span class="line">        System.out.println(&quot;userController...save...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setUserService(UserService userService) &#123;</span><br><span class="line">        this.userService = userService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建Spring配置文件beans2.xml，开启注解和定义Bean;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">      http://www.springframework.org/schema/beans/spring-beans-4.3.xsd</span><br><span class="line">      http://www.springframework.org/schema/context</span><br><span class="line">  http://www.springframework.org/schema/context/spring-context-4.3.xsd&quot;&gt;</span><br><span class="line">  </span><br><span class="line">    &lt;!-- 使用 context 命名空间 ,在配置文件中开启相应的注解处理器 --&gt;</span><br><span class="line">    &lt;context:annotation-config /&gt;</span><br><span class="line">    &lt;!--分别定义3个Bean实例  --&gt;</span><br><span class="line">    &lt;bean id=&quot;userDao&quot; class=&quot;com.ssm.annotation.UserDaoImpl&quot; /&gt;</span><br><span class="line">    &lt;bean id=&quot;userService&quot; class=&quot;com.ssm.annotation.UserServiceImpl&quot; /&gt;</span><br><span class="line">    &lt;bean id=&quot;userController&quot; class=&quot;com.ssm.annotation.UserController&quot; /&gt;</span><br><span class="line">    &lt;!--使用 context 命名空间 ,通知Spring扫描指定包下所有Bean类，进行注解解析--&gt;</span><br><span class="line">    &lt;context:component-scan base-package=&quot;com.ssm.annotation&quot; /&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建测试类AnnotationAssembleTest，测试程序；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package com.ssm.annotation;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line">public class AnnotationAssembleTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 定义配置文件路径</span><br><span class="line">        String xmlPath = &quot;beans2.xml&quot;;</span><br><span class="line">        // 加载配置文件</span><br><span class="line">        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);</span><br><span class="line">        // 获取UserController实例</span><br><span class="line">        UserController userController = (UserController) applicationContext.getBean(&quot;userController&quot;);</span><br><span class="line">        // 调用UserController中的save()方法</span><br><span class="line">        userController.save();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行效果。</p>
-<p><img src="http://pu0f1yxo8.bkt.clouddn.com/%E6%B3%A8%E8%A7%A3%E8%A3%85%E9%85%8D.png" alt></p>
-</li>
-</ol>
-<h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓自动装配，就是将一个Bean自动的注入到到其他Bean的Property中。 Spring的<bean>元素中包含一个autowire属性，我们可以通过设置autowire的属性值来自动装配Bean。autowire属性有5个值，其值及说明下表所示：<br><img src="http://pu0f1yxo8.bkt.clouddn.com/autowire%E5%B1%9E%E6%80%A7.png" alt></bean></p>
-<h3 id="具体实现步骤如下-2"><a href="#具体实现步骤如下-2" class="headerlink" title="具体实现步骤如下"></a>具体实现步骤如下</h3><p>这里只需要在基于注解的装配配置文件（beans.xml）中把注解方式换成自动装配即可，具体代码如下：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">      http://www.springframework.org/schema/beans/spring-beans-4.3.xsd</span><br><span class="line">      http://www.springframework.org/schema/context</span><br><span class="line">  http://www.springframework.org/schema/context/spring-context-4.3.xsd&quot;&gt;</span><br><span class="line">    &lt;!-- 使用 context 命名空间 ,在配置文件中开启相应的注解处理器 --&gt;</span><br><span class="line">    &lt;!--&lt;context:annotation-config /&gt;--&gt;</span><br><span class="line">    &lt;!--&amp;lt;!&amp;ndash;分别定义3个Bean实例  &amp;ndash;&amp;gt;--&gt;</span><br><span class="line">    &lt;!--&lt;bean id=&quot;userDao&quot; class=&quot;com.ssm.annotation.UserDaoImpl&quot; /&gt;--&gt;</span><br><span class="line">    &lt;!--&lt;bean id=&quot;userService&quot; class=&quot;com.ssm.annotation.UserServiceImpl&quot; /&gt;--&gt;</span><br><span class="line">    &lt;!--&lt;bean id=&quot;userController&quot; class=&quot;com.ssm.annotation.UserController&quot; /&gt;--&gt;</span><br><span class="line">    &lt;!--&amp;lt;!&amp;ndash;使用 context 命名空间 ,通知Spring扫描指定包下所有Bean类，进行注解解析&amp;ndash;&amp;gt;--&gt;</span><br><span class="line">    &lt;!--&lt;context:component-scan base-package=&quot;com.ssm.annotation&quot; /&gt;--&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 使用bean元素的autowire属性完成自动装配 --&gt;</span><br><span class="line">    &lt;bean id=&quot;userDao&quot;</span><br><span class="line">          class=&quot;com.ssm.annotation.UserDaoImpl&quot; /&gt;</span><br><span class="line">    &lt;bean id=&quot;userService&quot;</span><br><span class="line">          class=&quot;com.ssm.annotation.UserServiceImpl&quot; autowire=&quot;byName&quot; /&gt;</span><br><span class="line">    &lt;bean id=&quot;userController&quot;</span><br><span class="line">          class=&quot;com.ssm.annotation.UserController&quot; autowire=&quot;byName&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
 
-<p><strong>运行效果和基于注解的装配一样</strong></p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以上就是Spring中Bean的三种装配方式，其中我们需要重点掌握第二种基于注解的装配，它是我们日常工作最常用的一种装配。</p>
+<ol start="5">
+<li>创建控制（Controller）层Java类UserController，并在实现类前添加对应的注解@Controller(“userController”)和在类里面方法前添加对应的注解 @Resource(name=”userService”)；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.ssm.annotation;</span><br><span class="line">import javax.annotation.Resource;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line"></span><br><span class="line">@Controller(&quot;userController&quot;)</span><br><span class="line">//相当于配置文件中的:&lt;bean id=&quot;userController&quot; class=&quot;com.ssm.annotation.UserController&quot; /&gt;</span><br><span class="line"></span><br><span class="line">public class UserController &#123;</span><br><span class="line">    @Resource(name=&quot;userService&quot;)</span><br><span class="line">    //当于配置文件中的:&lt;property name=&quot;userService&quot;  ref=&quot;userService&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    private UserService userService;</span><br><span class="line">    public void save()&#123;</span><br><span class="line">        this.userService.save();</span><br><span class="line">        System.out.println(&quot;userController...save...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setUserService(UserService userService) &#123;</span><br><span class="line">        this.userService = userService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>创建Spring配置文件beans2.xml，开启注解和定义Bean;</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">      http://www.springframework.org/schema/beans/spring-beans-4.3.xsd</span><br><span class="line">      http://www.springframework.org/schema/context</span><br><span class="line">  http://www.springframework.org/schema/context/spring-context-4.3.xsd&quot;&gt;</span><br><span class="line">  </span><br><span class="line">    &lt;!-- 使用 context 命名空间 ,在配置文件中开启相应的注解处理器 --&gt;</span><br><span class="line">    &lt;context:annotation-config /&gt;</span><br><span class="line">    &lt;!--分别定义3个Bean实例  --&gt;</span><br><span class="line">    &lt;bean id=&quot;userDao&quot; class=&quot;com.ssm.annotation.UserDaoImpl&quot; /&gt;</span><br><span class="line">    &lt;bean id=&quot;userService&quot; class=&quot;com.ssm.annotation.UserServiceImpl&quot; /&gt;</span><br><span class="line">    &lt;bean id=&quot;userController&quot; class=&quot;com.ssm.annotation.UserController&quot; /&gt;</span><br><span class="line">    &lt;!--使用 context 命名空间 ,通知Spring扫描指定包下所有Bean类，进行注解解析--&gt;</span><br><span class="line">    &lt;context:component-scan base-package=&quot;com.ssm.annotation&quot; /&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>创建测试类AnnotationAssembleTest，测试程序；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package com.ssm.annotation;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line">public class AnnotationAssembleTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 定义配置文件路径</span><br><span class="line">        String xmlPath = &quot;beans2.xml&quot;;</span><br><span class="line">        // 加载配置文件</span><br><span class="line">        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);</span><br><span class="line">        // 获取UserController实例</span><br><span class="line">        UserController userController = (UserController) applicationContext.getBean(&quot;userController&quot;);</span><br><span class="line">        // 调用UserController中的save()方法</span><br><span class="line">        userController.save();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>运行效果。</li>
+</ol>
 </li>
 </ol>
+<p><img src="http://pu0f1yxo8.bkt.clouddn.com/%E6%B3%A8%E8%A7%A3%E8%A3%85%E9%85%8D.png" alt></p>
+<h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓自动装配，就是将一个Bean自动的注入到到其他Bean的Property中。 Spring的<bean>元素中包含一个autowire属性，我们可以通过设置autowire的属性值来自动装配Bean。autowire属性有5个值，其值及说明下表所示：<br>   <img src="http://pu0f1yxo8.bkt.clouddn.com/autowire%E5%B1%9E%E6%80%A7.png" alt></bean></p>
+<h3 id="具体实现步骤如下-2"><a href="#具体实现步骤如下-2" class="headerlink" title="具体实现步骤如下"></a>具体实现步骤如下</h3><p>   这里只需要在基于注解的装配配置文件（beans.xml）中把注解方式换成自动装配即可，具体代码如下：<br>    ​<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">      http://www.springframework.org/schema/beans/spring-beans-4.3.xsd</span><br><span class="line">      http://www.springframework.org/schema/context</span><br><span class="line">  http://www.springframework.org/schema/context/spring-context-4.3.xsd&quot;&gt;</span><br><span class="line">    &lt;!-- 使用 context 命名空间 ,在配置文件中开启相应的注解处理器 --&gt;</span><br><span class="line">    &lt;!--&lt;context:annotation-config /&gt;--&gt;</span><br><span class="line">    &lt;!--&amp;lt;!&amp;ndash;分别定义3个Bean实例  &amp;ndash;&amp;gt;--&gt;</span><br><span class="line">    &lt;!--&lt;bean id=&quot;userDao&quot; class=&quot;com.ssm.annotation.UserDaoImpl&quot; /&gt;--&gt;</span><br><span class="line">    &lt;!--&lt;bean id=&quot;userService&quot; class=&quot;com.ssm.annotation.UserServiceImpl&quot; /&gt;--&gt;</span><br><span class="line">    &lt;!--&lt;bean id=&quot;userController&quot; class=&quot;com.ssm.annotation.UserController&quot; /&gt;--&gt;</span><br><span class="line">    &lt;!--&amp;lt;!&amp;ndash;使用 context 命名空间 ,通知Spring扫描指定包下所有Bean类，进行注解解析&amp;ndash;&amp;gt;--&gt;</span><br><span class="line">    &lt;!--&lt;context:component-scan base-package=&quot;com.ssm.annotation&quot; /&gt;--&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!-- 使用bean元素的autowire属性完成自动装配 --&gt;</span><br><span class="line">    &lt;bean id=&quot;userDao&quot;</span><br><span class="line">          class=&quot;com.ssm.annotation.UserDaoImpl&quot; /&gt;</span><br><span class="line">    &lt;bean id=&quot;userService&quot;</span><br><span class="line">          class=&quot;com.ssm.annotation.UserServiceImpl&quot; autowire=&quot;byName&quot; /&gt;</span><br><span class="line">    &lt;bean id=&quot;userController&quot;</span><br><span class="line">          class=&quot;com.ssm.annotation.UserController&quot; autowire=&quot;byName&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br><span class="line"> ​</span><br></pre></td></tr></table></figure></p>
+<p>   <strong><em>运行效果和基于注解的装配一样</em></strong></p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以上就是Spring中Bean的三种装配方式，其中我们需要重点掌握第二种基于注解的装配，它是我们日常工作最常用的一种装配。</p>
 
       
     </div>
@@ -558,6 +582,19 @@
     
 
     <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
+          
+            <a href="/tags/Bean的装配/" rel="tag"># Bean的装配</a>
+          
+        </div>
       
 
       
@@ -675,7 +712,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -706,7 +745,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
