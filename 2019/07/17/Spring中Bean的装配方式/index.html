@@ -109,15 +109,15 @@
 <meta property="og:site_name" content="YoHope">
 <meta property="og:description" content="前言   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png">
-<meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/%E4%B8%BB%E8%A6%81%E6%B3%A8%E8%A7%A3.png">
-<meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/%E6%B3%A8%E8%A7%A3%E8%A3%85%E9%85%8D.png">
-<meta property="og:image" content="http://pu0f1yxo8.bkt.clouddn.com/autowire%E5%B1%9E%E6%80%A7.png">
-<meta property="og:updated_time" content="2019-07-17T12:14:53.363Z">
+<meta property="og:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png">
+<meta property="og:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E4%B8%BB%E8%A6%81%E6%B3%A8%E8%A7%A3.png">
+<meta property="og:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E6%B3%A8%E8%A7%A3%E8%A3%85%E9%85%8D.png">
+<meta property="og:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/autowire%E5%B1%9E%E6%80%A7.png">
+<meta property="og:updated_time" content="2019-07-25T06:18:06.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring中Bean的装配方式">
 <meta name="twitter:description" content="前言   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean的装配可以理解为依赖关系注入，Bean的装配方式即Bean依赖注入的方式。Spring容器支持多种形式的Bean的装配方式，如基于XML的装配、基于注解（Annotation）的装配和自动装配（其中最常用的是基于注解的装配），本文章将主要讲解着三种装配方式的使用。 基于XML的装配">
-<meta name="twitter:image" content="http://pu0f1yxo8.bkt.clouddn.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png">
+<meta name="twitter:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png">
 
 
 
@@ -426,13 +426,23 @@
                 
               
 
-              <time title="创建时间：2019-07-17 16:18:03 / 修改时间：20:14:53" itemprop="dateCreated datePublished" datetime="2019-07-17T16:18:03+08:00">2019-07-17</time>
+              <time title="创建时间：2019-07-17 16:18:03" itemprop="dateCreated datePublished" datetime="2019-07-17T16:18:03+08:00">2019-07-17</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-25 14:18:06" itemprop="dateModified" datetime="2019-07-25T14:18:06+08:00">2019-07-25</time>
+              </span>
             
           
 
@@ -502,11 +512,11 @@
 
 <ol start="4">
 <li><p>运行效果。</p>
-<p><img src="http://pu0f1yxo8.bkt.clouddn.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png" alt></p>
+<p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/XML%E6%96%B9%E5%BC%8F%E7%BB%84%E8%A3%85Bean.png" alt></p>
 </li>
 </ol>
 <h2 id="基于注解的装配"><a href="#基于注解的装配" class="headerlink" title="基于注解的装配"></a>基于注解的装配</h2><p>　　由于基于XML的装配可能会导致XML配置文件过于臃肿，给后续的维护和升级带来一定的困难。因此，Spring提供了对Annotation（注解）技术的全面支持。</p>
-<p><img src="http://pu0f1yxo8.bkt.clouddn.com/%E4%B8%BB%E8%A6%81%E6%B3%A8%E8%A7%A3.png" alt> </p>
+<p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E4%B8%BB%E8%A6%81%E6%B3%A8%E8%A7%A3.png" alt> </p>
 <h3 id="具体实现步骤如下-1"><a href="#具体实现步骤如下-1" class="headerlink" title="具体实现步骤如下"></a>具体实现步骤如下</h3><ol>
 <li>创建数据访问（Dao）层接口UserDao；</li>
 </ol>
@@ -547,10 +557,14 @@
 </ol>
 </li>
 </ol>
-<p><img src="http://pu0f1yxo8.bkt.clouddn.com/%E6%B3%A8%E8%A7%A3%E8%A3%85%E9%85%8D.png" alt></p>
-<h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓自动装配，就是将一个Bean自动的注入到到其他Bean的Property中。 Spring的<bean>元素中包含一个autowire属性，我们可以通过设置autowire的属性值来自动装配Bean。autowire属性有5个值，其值及说明下表所示：<br>   <img src="http://pu0f1yxo8.bkt.clouddn.com/autowire%E5%B1%9E%E6%80%A7.png" alt></bean></p>
-<h3 id="具体实现步骤如下-2"><a href="#具体实现步骤如下-2" class="headerlink" title="具体实现步骤如下"></a>具体实现步骤如下</h3><p>   这里只需要在基于注解的装配配置文件（beans.xml）中把注解方式换成自动装配即可，具体代码如下：<br>    ​<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">      http://www.springframework.org/schema/beans/spring-beans-4.3.xsd</span><br><span class="line">      http://www.springframework.org/schema/context</span><br><span class="line">  http://www.springframework.org/schema/context/spring-context-4.3.xsd&quot;&gt;</span><br><span class="line">    &lt;!-- 使用 context 命名空间 ,在配置文件中开启相应的注解处理器 --&gt;</span><br><span class="line">    &lt;!--&lt;context:annotation-config /&gt;--&gt;</span><br><span class="line">    &lt;!--&amp;lt;!&amp;ndash;分别定义3个Bean实例  &amp;ndash;&amp;gt;--&gt;</span><br><span class="line">    &lt;!--&lt;bean id=&quot;userDao&quot; class=&quot;com.ssm.annotation.UserDaoImpl&quot; /&gt;--&gt;</span><br><span class="line">    &lt;!--&lt;bean id=&quot;userService&quot; class=&quot;com.ssm.annotation.UserServiceImpl&quot; /&gt;--&gt;</span><br><span class="line">    &lt;!--&lt;bean id=&quot;userController&quot; class=&quot;com.ssm.annotation.UserController&quot; /&gt;--&gt;</span><br><span class="line">    &lt;!--&amp;lt;!&amp;ndash;使用 context 命名空间 ,通知Spring扫描指定包下所有Bean类，进行注解解析&amp;ndash;&amp;gt;--&gt;</span><br><span class="line">    &lt;!--&lt;context:component-scan base-package=&quot;com.ssm.annotation&quot; /&gt;--&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!-- 使用bean元素的autowire属性完成自动装配 --&gt;</span><br><span class="line">    &lt;bean id=&quot;userDao&quot;</span><br><span class="line">          class=&quot;com.ssm.annotation.UserDaoImpl&quot; /&gt;</span><br><span class="line">    &lt;bean id=&quot;userService&quot;</span><br><span class="line">          class=&quot;com.ssm.annotation.UserServiceImpl&quot; autowire=&quot;byName&quot; /&gt;</span><br><span class="line">    &lt;bean id=&quot;userController&quot;</span><br><span class="line">          class=&quot;com.ssm.annotation.UserController&quot; autowire=&quot;byName&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br><span class="line"> ​</span><br></pre></td></tr></table></figure></p>
-<p>   <strong><em>运行效果和基于注解的装配一样</em></strong></p>
+<p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E6%B3%A8%E8%A7%A3%E8%A3%85%E9%85%8D.png" alt></p>
+<h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓自动装配，就是将一个Bean自动的注入到到其他Bean的Property中。 Spring的<bean>元素中包含一个autowire属性，我们可以通过设置autowire的属性值来自动装配Bean。autowire属性有5个值，其值及说明下表所示：<br>   <img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/autowire%E5%B1%9E%E6%80%A7.png" alt></bean></p>
+<h3 id="具体实现步骤如下-2"><a href="#具体实现步骤如下-2" class="headerlink" title="具体实现步骤如下"></a>具体实现步骤如下</h3><p>   这里只需要在基于注解的装配配置文件（beans.xml）中把注解方式换成自动装配即可，具体代码如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span>    </span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">     http://www.springframework.org/schema/beans/spring-beans-4.3.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">     http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string"> http://www.springframework.org/schema/context/spring-context-4.3.xsd"</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 使用 context 命名空间 ,在配置文件中开启相应的注解处理器 --&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--&lt;context:annotation-config /&gt;--&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--&amp;lt;!&amp;ndash;分别定义3个Bean实例  &amp;ndash;&amp;gt;--&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--&lt;bean id="userDao" class="com.ssm.annotation.UserDaoImpl" /&gt;--&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--&lt;bean id="userService" class="com.ssm.annotation.UserServiceImpl" /&gt;--&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--&lt;bean id="userController" class="com.ssm.annotation.UserController" /&gt;--&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--&amp;lt;!&amp;ndash;使用 context 命名空间 ,通知Spring扫描指定包下所有Bean类，进行注解解析&amp;ndash;&amp;gt;--&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--&lt;context:component-scan base-package="com.ssm.annotation" /&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">&lt;!-- 使用bean元素的autowire属性完成自动装配 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userDao"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">class</span>=<span class="string">"com.ssm.annotation.UserDaoImpl"</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userService"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">class</span>=<span class="string">"com.ssm.annotation.UserServiceImpl"</span> <span class="attr">autowire</span>=<span class="string">"byName"</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userController"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">class</span>=<span class="string">"com.ssm.annotation.UserController"</span> <span class="attr">autowire</span>=<span class="string">"byName"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>  <strong><em>运行效果和基于注解的装配一样</em></strong></p>
 <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以上就是Spring中Bean的三种装配方式，其中我们需要重点掌握第二种基于注解的装配，它是我们日常工作最常用的一种装配。</p>
 
       
@@ -923,7 +937,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共6k字</span>
+  <span class="post-count">博客全站共5.9k字</span>
 </div>
         
 
