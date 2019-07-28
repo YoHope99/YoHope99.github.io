@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://YoHope99.github.io/"/>
-  <updated>2019-07-25T09:09:51.457Z</updated>
+  <updated>2019-07-28T12:00:02.264Z</updated>
   <id>http://YoHope99.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker的安装以及解决启动失败问题</title>
+    <link href="http://YoHope99.github.io/2019/07/28/Docker%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/"/>
+    <id>http://YoHope99.github.io/2019/07/28/Docker的安装以及解决启动失败问题/</id>
+    <published>2019-07-28T10:51:33.000Z</published>
+    <updated>2019-07-28T12:00:02.264Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　本文章主要讲解在Linux虚拟机上安装Docker以及安装后启动失败的问题。</p><h2 id="在Linux虚拟机上安装Docker以及解决启动问题"><a href="#在Linux虚拟机上安装Docker以及解决启动问题" class="headerlink" title="在Linux虚拟机上安装Docker以及解决启动问题"></a>在Linux虚拟机上安装Docker以及解决启动问题</h2><p><strong>步骤：</strong></p><ol><li>检查Linux系统内核版本，必须是3.10及以上<code>uname -r</code><a id="more"></a></li></ol><p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/version.png" alt></p><ol start="2"><li>安装docker，<code>yum install docker</code>，输入<strong>y</strong>确定安装，知道出现<strong><em>Complete!</em></strong>表示安装已经完成</li></ol><p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%AE%89%E8%A3%85docker.png" alt></p><ol start="3"><li>启动docker，<code>systemctl start docker</code>，发现启动不了</li></ol><p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/docker%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5.png" alt></p><ol start="4"><li>输入<code>systemctl status docker.service</code>命令会发现提示以下错误提示</li></ol><p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/docker%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA.png" alt></p><p><strong>错误信息表示：</strong></p><p><strong><em>此linux的内核中的SELinux不支持 overlay2 graph driver ，解决方法有两个，要么启动一个新内核，要么就在docker里禁用selinux，–selinux-enabled=false；</em></strong></p><ol start="5"><li>解决方案：</li></ol><p>用vi编辑器打开docker配置文件，修改配置信息，在<strong>–selinux-enabled</strong>后面添加<strong>=false</strong>，如下：</p><p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E4%BF%AE%E6%94%B9docker%E9%85%8D%E7%BD%AE.png" alt></p><ol start="6"><li>输入<code>systemctl start docker</code>命令，重新启动发现可以正常启动了。</li></ol><p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/docker%E6%AD%A3%E5%B8%B8%E5%90%AF%E5%8A%A8.png" alt></p><h2 id="设置虚拟机开机启动docker"><a href="#设置虚拟机开机启动docker" class="headerlink" title="设置虚拟机开机启动docker"></a>设置虚拟机开机启动docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# systemctl enable docker</span><br><span class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;　　本文章主要讲解在Linux虚拟机上安装Docker以及安装后启动失败的问题。&lt;/p&gt;
+&lt;h2 id=&quot;在Linux虚拟机上安装Docker以及解决启动问题&quot;&gt;&lt;a href=&quot;#在Linux虚拟机上安装Docker以及解决启动问题&quot; class=&quot;headerlink&quot; title=&quot;在Linux虚拟机上安装Docker以及解决启动问题&quot;&gt;&lt;/a&gt;在Linux虚拟机上安装Docker以及解决启动问题&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;步骤：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;检查Linux系统内核版本，必须是3.10及以上&lt;code&gt;uname -r&lt;/code&gt;
+    
+    </summary>
+    
+      <category term="Docker" scheme="http://YoHope99.github.io/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="http://YoHope99.github.io/tags/Docker/"/>
+    
+      <category term="Linux" scheme="http://YoHope99.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>有趣的二进制问题</title>
