@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[YAML语法]]></title>
+    <url>%2F2019%2F08%2F08%2FYAML%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[前言 在用Spring Boot的过程中，我们经常需要编写application.properties或者application.yml配置文件来改变Spring Boot的默认配置，因此本文主要讲解yaml的语法用法。 基本语法key:(空格)value：表示一对键值对（空格必须有）； 以空格的缩进来控制层级关系，只要是左对齐的一列数据，都是同一个层级的关系。 123server: port: 8082 path: /hello 注意：属性和值都是大小写敏感的。 值的写法字面量：普通的值（数字、字符串、布尔类型）key: value：字面直接来写； 字符串默认不用加上单引号或者双引号； “ ”：双引号；不会转义字符串里面的特殊字符；特殊字符会作为本身所想表达的意思 例如：name: “zhangsan \n lisi”：输出是：zhangsan 换行 lisi ‘ ‘：单引号；会转义特殊字符，特殊字符最终只是一个普通的字符串数据 例如：name: ‘zhangsan \n lisi’：输出是：zhangsan \n lisi 对象、Map（属性和值）（键值对）：key: value：在下一行来写对象的属性和值的关系；注意缩进 对象还是Key: value的方式 123person: name: zhangsan age: 24 行内写法： 1person: &#123;name: zhangsan,age: 24&#125; 数组（List、Set）用- 值表示数组中的一个元素 1234pets: - dog - cat - pig 行内写法： 1pets: [dog,cat,pig] 小结yaml的语法是一个把空格玩到极致的，在编写的时候我们需要注意空格就可以了。]]></content>
+      <categories>
+        <category>YAML</category>
+      </categories>
+      <tags>
+        <tag>yaml语法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Docker的安装以及解决启动失败问题]]></title>
     <url>%2F2019%2F07%2F28%2FDocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[前言 本文章主要讲解在Linux虚拟机上安装Docker以及安装后启动失败的问题。 在Linux虚拟机上安装Docker以及解决启动问题步骤： 检查Linux系统内核版本，必须是3.10及以上uname -r 安装docker，yum install docker，输入y确定安装，知道出现Complete!表示安装已经完成 启动docker，systemctl start docker，发现启动不了 输入systemctl status docker.service命令会发现提示以下错误提示 错误信息表示： 此linux的内核中的SELinux不支持 overlay2 graph driver ，解决方法有两个，要么启动一个新内核，要么就在docker里禁用selinux，–selinux-enabled=false； 解决方案： 用vi编辑器打开docker配置文件，修改配置信息，在–selinux-enabled后面添加=false，如下： 输入systemctl start docker命令，重新启动发现可以正常启动了。 设置虚拟机开机启动docker12[root@localhost ~]# systemctl enable dockerCreated symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.]]></content>

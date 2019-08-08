@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://YoHope99.github.io/"/>
-  <updated>2019-07-28T12:00:02.264Z</updated>
+  <updated>2019-08-08T11:47:39.783Z</updated>
   <id>http://YoHope99.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>YAML语法</title>
+    <link href="http://YoHope99.github.io/2019/08/08/YAML%E8%AF%AD%E6%B3%95/"/>
+    <id>http://YoHope99.github.io/2019/08/08/YAML语法/</id>
+    <published>2019-08-08T10:42:17.000Z</published>
+    <updated>2019-08-08T11:47:39.783Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　　在用Spring Boot的过程中，我们经常需要编写application.properties或者application.yml配置文件来改变Spring Boot的默认配置，因此本文主要讲解yaml的语法用法。</p><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>key:(空格)value：表示一对键值对（空格必须有）；</p><p>以<strong>空格</strong>的缩进来控制层级关系，只要是左对齐的一列数据，都是同一个层级的关系。</p><a id="more"></a><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">8082</span></span><br><span class="line"><span class="attr">    path:</span> <span class="string">/hello</span></span><br></pre></td></tr></table></figure><p><strong><em>注意：属性和值都是大小写敏感的。</em></strong></p><h2 id="值的写法"><a href="#值的写法" class="headerlink" title="值的写法"></a>值的写法</h2><h3 id="字面量：普通的值（数字、字符串、布尔类型）"><a href="#字面量：普通的值（数字、字符串、布尔类型）" class="headerlink" title="字面量：普通的值（数字、字符串、布尔类型）"></a>字面量：普通的值（数字、字符串、布尔类型）</h3><p>key: value：字面直接来写；</p><ul><li><p>字符串默认不用加上单引号或者双引号；</p></li><li><p>“ ”：双引号；不会转义字符串里面的特殊字符；特殊字符会作为本身所想表达的意思</p><p>例如：name:   “zhangsan \n lisi”：输出是：zhangsan 换行  lisi</p></li><li><p>‘ ‘：单引号；会转义特殊字符，特殊字符最终只是一个普通的字符串数据</p><p>例如：name:   ‘zhangsan \n lisi’：输出是：zhangsan \n  lisi</p></li></ul><h3 id="对象、Map（属性和值）（键值对）："><a href="#对象、Map（属性和值）（键值对）：" class="headerlink" title="对象、Map（属性和值）（键值对）："></a>对象、Map（属性和值）（键值对）：</h3><p>key: value：在下一行来写对象的属性和值的关系；<strong>注意缩进</strong></p><p>　　　　　　对象还是Key: value的方式</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">    age:</span> <span class="number">24</span></span><br></pre></td></tr></table></figure><p>行内写法：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span> <span class="string">&#123;name:</span> <span class="string">zhangsan,age:</span> <span class="number">24</span><span class="string">&#125;</span></span><br></pre></td></tr></table></figure><h3 id="数组（List、Set）"><a href="#数组（List、Set）" class="headerlink" title="数组（List、Set）"></a>数组（List、Set）</h3><p>用- 值表示数组中的一个元素</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pets:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">dog</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">cat</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">pig</span></span><br></pre></td></tr></table></figure><p>行内写法：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pets:</span> <span class="string">[dog,cat,pig]</span></span><br></pre></td></tr></table></figure><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>yaml的语法是一个把空格玩到极致的，在编写的时候我们需要注意空格就可以了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;　　　在用Spring Boot的过程中，我们经常需要编写application.properties或者application.yml配置文件来改变Spring Boot的默认配置，因此本文主要讲解yaml的语法用法。&lt;/p&gt;
+&lt;h2 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h2&gt;&lt;p&gt;key:(空格)value：表示一对键值对（空格必须有）；&lt;/p&gt;
+&lt;p&gt;以&lt;strong&gt;空格&lt;/strong&gt;的缩进来控制层级关系，只要是左对齐的一列数据，都是同一个层级的关系。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="YAML" scheme="http://YoHope99.github.io/categories/YAML/"/>
+    
+    
+      <category term="yaml语法" scheme="http://YoHope99.github.io/tags/yaml%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker的安装以及解决启动失败问题</title>
