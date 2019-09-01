@@ -101,21 +101,22 @@
 
 
 
-  <meta name="description" content="前言在这篇文章中，我主要讲述以下内容：  引言 设计模式的诞生与发展 设计模式的定义与GoF23种设计模式 设计模式的优点">
-<meta name="keywords" content="Java,设计模式">
+  <meta name="description" content="前言这篇文章主要讲述线程的概念、组成、Java创建多线程的三种方式以及线程的类型。 线程概念线程和进程的区别进程：正在运行的程序，例如：你打开 的qq音乐.exe程序，其由PCB（进程控制块）、栈、程序、数据组成。 线程：是一个进程中的程序代码的一个执行序列，被认为是带有自己的程序代码和数据的虚拟处理机的封装，其由处理机、代码、数据三部分组成，你可以这样理解线程是在进程内部同时做的事情，比如你在q">
+<meta name="keywords" content="Java,多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈设计模式">
-<meta property="og:url" content="http://YoHope99.github.io/2019/07/03/浅谈设计模式/index.html">
+<meta property="og:title" content="Java创建多线程的三种方式">
+<meta property="og:url" content="http://YoHope99.github.io/2019/08/27/Java创建多线程的三种方式/index.html">
 <meta property="og:site_name" content="YoHope">
-<meta property="og:description" content="前言在这篇文章中，我主要讲述以下内容：  引言 设计模式的诞生与发展 设计模式的定义与GoF23种设计模式 设计模式的优点">
+<meta property="og:description" content="前言这篇文章主要讲述线程的概念、组成、Java创建多线程的三种方式以及线程的类型。 线程概念线程和进程的区别进程：正在运行的程序，例如：你打开 的qq音乐.exe程序，其由PCB（进程控制块）、栈、程序、数据组成。 线程：是一个进程中的程序代码的一个执行序列，被认为是带有自己的程序代码和数据的虚拟处理机的封装，其由处理机、代码、数据三部分组成，你可以这样理解线程是在进程内部同时做的事情，比如你在q">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%AE%9E%E4%BE%8B1.png">
-<meta property="og:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E7%B1%BB.png">
-<meta property="og:updated_time" content="2019-07-25T06:20:21.594Z">
+<meta property="og:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BB%A7%E6%89%BFThread.png">
+<meta property="og:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E5%AE%9E%E7%8E%B0Runnable.png">
+<meta property="og:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E5%AE%9E%E7%8E%B0Callable.png">
+<meta property="og:updated_time" content="2019-09-01T07:38:33.041Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈设计模式">
-<meta name="twitter:description" content="前言在这篇文章中，我主要讲述以下内容：  引言 设计模式的诞生与发展 设计模式的定义与GoF23种设计模式 设计模式的优点">
-<meta name="twitter:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%AE%9E%E4%BE%8B1.png">
+<meta name="twitter:title" content="Java创建多线程的三种方式">
+<meta name="twitter:description" content="前言这篇文章主要讲述线程的概念、组成、Java创建多线程的三种方式以及线程的类型。 线程概念线程和进程的区别进程：正在运行的程序，例如：你打开 的qq音乐.exe程序，其由PCB（进程控制块）、栈、程序、数据组成。 线程：是一个进程中的程序代码的一个执行序列，被认为是带有自己的程序代码和数据的虚拟处理机的封装，其由处理机、代码、数据三部分组成，你可以这样理解线程是在进程内部同时做的事情，比如你在q">
+<meta name="twitter:image" content="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BB%A7%E6%89%BFThread.png">
 
 
 
@@ -125,7 +126,7 @@
 
   
   
-  <link rel="canonical" href="http://YoHope99.github.io/2019/07/03/浅谈设计模式/">
+  <link rel="canonical" href="http://YoHope99.github.io/2019/08/27/Java创建多线程的三种方式/">
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>浅谈设计模式 | YoHope</title>
+  <title>Java创建多线程的三种方式 | YoHope</title>
   
 
 
@@ -381,7 +382,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://YoHope99.github.io/2019/07/03/浅谈设计模式/">
+    <link itemprop="mainEntityOfPage" href="http://YoHope99.github.io/2019/08/27/Java创建多线程的三种方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YoHope">
@@ -398,7 +399,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈设计模式
+          <h1 class="post-title" itemprop="name headline">Java创建多线程的三种方式
 
               
             
@@ -424,7 +425,7 @@
                 
               
 
-              <time title="创建时间：2019-07-03 09:18:03" itemprop="dateCreated datePublished" datetime="2019-07-03T09:18:03+08:00">2019-07-03</time>
+              <time title="创建时间：2019-08-27 15:38:32" itemprop="dateCreated datePublished" datetime="2019-08-27T15:38:32+08:00">2019-08-27</time>
             </span>
           
 
@@ -439,7 +440,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-25 14:20:21" itemprop="dateModified" datetime="2019-07-25T14:20:21+08:00">2019-07-25</time>
+                <time title="修改时间：2019-09-01 15:38:33" itemprop="dateModified" datetime="2019-09-01T15:38:33+08:00">2019-09-01</time>
               </span>
             
           
@@ -453,7 +454,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/多线程/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a></span>
 
                 
                 
@@ -491,61 +492,42 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在这篇文章中，我主要讲述以下内容：</p>
-<ul>
-<li>引言</li>
-<li>设计模式的诞生与发展</li>
-<li>设计模式的定义与GoF23种设计模式</li>
-<li>设计模式的优点</li>
-</ul>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章主要讲述线程的概念、组成、Java创建多线程的三种方式以及线程的类型。</p>
+<h2 id="线程概念"><a href="#线程概念" class="headerlink" title="线程概念"></a>线程概念</h2><h3 id="线程和进程的区别"><a href="#线程和进程的区别" class="headerlink" title="线程和进程的区别"></a>线程和进程的区别</h3><p><strong>进程：</strong>正在运行的程序，例如：你打开 的qq音乐.exe程序，其由PCB（进程控制块）、栈、程序、数据组成。</p>
+<p><strong>线程：</strong>是一个进程中的程序代码的一个执行序列，被认为是带有自己的程序代码和数据的虚拟处理机的封装，其由处理机、代码、数据三部分组成，你可以这样理解线程是在进程内部同时做的事情，比如你在qq音乐应用里可以一边听音乐、同时下载音乐。这就是由多线程来实现的。<strong>（一个进程至少包含一个或者多个线程）</strong></p>
 <a id="more"></a>
 
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h3 id="从两个实例说起："><a href="#从两个实例说起：" class="headerlink" title="从两个实例说起："></a>从两个实例说起：</h3><h4 id="1-实例一"><a href="#1-实例一" class="headerlink" title="1. 实例一"></a>1. 实例一</h4><p><strong>实例说明</strong></p>
-<p>某软件公司要开发一个跨平台图像浏览系统，要求该系统能够显示BMP、JPG、GIF、PNG等多种格式的文件，<br>并且能够在Windows、Linux、Unix等多个操作系统上运行。系统首先将各种格式的文件解析为像素矩阵(Matrix)，然后将像素矩阵显示在屏幕上，在不同的操作系统中可以调用不同的绘制函数来绘制像素矩阵。</p>
-<p><strong>设计方案</strong></p>
-<p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%AE%9E%E4%BE%8B1.png" alt></p>
-<p><strong>问题</strong></p>
-<ul>
-<li>采用了多层继承结构，导致系统中类的个数急剧增加，具体层的类的个数 =所支持的图像文件格式数×所支持的操作系统数；</li>
-<li>系统扩展麻烦，无论是增加新的图像文件格式还是增加新的操作系统，都需要增加大量的具体类，这将导致系统变得非常庞大，增加运行和维护开销。</li>
-</ul>
-<h4 id="2-实例二"><a href="#2-实例二" class="headerlink" title="2. 实例二"></a>2. 实例二</h4><p><strong>实例说明</strong></p>
-<p>•某软件公司为某电影院开发了一套影院售票系统，在该系统中需要为不同类型的用户提供不同的电影票打折方式，具体打折方案如下：</p>
-<p>(1)学生凭学生证可享受票价8折优惠；</p>
-<p>(2)年龄在10周岁及以下的儿童可享受每张票减免10元的优惠（原始票价需大于等于20元）；</p>
-<p>(3)影院VIP用户除享受票价半价优惠外还可进行积分，积分累计到一定额度可换取电影院赠送的奖品。</p>
-<p><strong><em>注意：该系统在将来可能还要根据需要引入新的打折方式。</em></strong></p>
-<p><strong>设计方案</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MovieTicket</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">double</span> price;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//compute the price</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calculate</span><span class="params">(String type)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//student ticket</span></span><br><span class="line">        <span class="keyword">if</span>(type.equalsIgnoreCase(<span class="string">"student"</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.price * <span class="number">0.8</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//children ticket</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(type.equalsIgnoreCase(<span class="string">"children"</span>) &amp;&amp; <span class="keyword">this</span>.price &gt;= <span class="number">20</span> ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.price - <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="comment">//VIP ticket</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(type.equalsIgnoreCase(<span class="string">"vip"</span>)) &#123;</span><br><span class="line">            <span class="comment">//add points, code is omitted</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.price * <span class="number">0.5</span>;</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.price; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong></p>
+<ol>
+<li><em>每个Java程序都有一个隐含的主线程，即main()方法，要实现多线程必须在主线程中创建新的线程，Java语言使用Thread类及其子类的对象来表示线程；</em></li>
+<li><em>一个虚拟处理机封装在java.lang.Thread类中，它控制着整个线程的运行；CPU执行的代码传递给Thread类，由Thread类控制顺序执行；处理的数据传递给Thread类，是在代码执行的过程中所要处理的数据。代码和数据可以由多个线程共享，也可以不被共享，代码和数据是相互独立的，当两个线程共享同一个类的实例时，他们就共享相同的代码；当两个线程共享一个公共对象的存取时，他们就共享相同的数据。</em></li>
+</ol>
+<h2 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h2><p>一个线程从它被创建到停止执行要经历一个完整的生命周期，在这个生命周期中有4种不同的状态。</p>
+<p>①New（新）   ②Runnable（可运行）    ③Blocked（被阻塞）    ④Dead（死亡）</p>
+<h2 id="创建线程的三种方式"><a href="#创建线程的三种方式" class="headerlink" title="创建线程的三种方式"></a>创建线程的三种方式</h2><h3 id="通过继承Thread类"><a href="#通过继承Thread类" class="headerlink" title="通过继承Thread类"></a>通过继承Thread类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	String threadName;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ThreadTest1</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Making thread:"</span>+s);</span><br><span class="line">		threadName = s;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ )&#123;</span><br><span class="line">			System.out.println(<span class="string">"Running thread number ="</span> + threadName);</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">1000</span>); <span class="comment">//线程睡眠1秒</span></span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//主线程，操作系统调度每个线程执行</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">		ThreadTest1 thread1 = <span class="keyword">new</span> ThreadTest1(<span class="string">"Tom"</span>); <span class="comment">//线程1Tom</span></span><br><span class="line">		ThreadTest1 thread2 = <span class="keyword">new</span> ThreadTest1(<span class="string">"Jack"</span>); <span class="comment">//线程2Jack</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">/**线程启动，不是直接调用 run() 方法，而是调运线程类 Thread 的 start() 方法，</span></span><br><span class="line"><span class="comment">		*在 Thread 方法内部会调用本地系统方法，最终会自动调用自己线程类的 run()方法。</span></span><br><span class="line"><span class="comment">		**/</span></span><br><span class="line">		thread1.start(); </span><br><span class="line">		thread2.start();</span><br><span class="line">		System.out.println(<span class="string">"End of main"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>问题</strong></p>
-<p>(1) MovieTicket类的calculate()方法非常庞大，它包含各种打折算法的实现代码，在代码中出现了较长的条件转移语句，不利于测试和维护；</p>
-<p>(2) 在增加新的打折算法或者对原有打折算法进行修改时必须修改MovieTicket类的源代码，系统的灵活性和可扩展性较差；</p>
-<p>(3)算法的复用性差，如果另一个系统需要重用某些打折算法，只能通过对源代码进行复制粘贴来重用，无法单独重用其中的某个或某些算法。</p>
-<h2 id="设计模式的诞生与发展"><a href="#设计模式的诞生与发展" class="headerlink" title="设计模式的诞生与发展"></a>设计模式的诞生与发展</h2><h3 id="设计模式的诞生"><a href="#设计模式的诞生" class="headerlink" title="设计模式的诞生"></a>设计模式的诞生</h3><ul>
-<li>设计模式起源于建筑业而非软件业</li>
-<li>设计模式之父——美国加利佛尼亚大学环境结构中心研究所所长ChristopherAlexander博士</li>
-<li>《APattern Language: Towns, Buildings, Construction》——253个建筑和城市规划模式</li>
+<p><strong>运行截图</strong></p>
+<p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BB%A7%E6%89%BFThread.png" alt></p>
+<h3 id="通过实现Runnable接口"><a href="#通过实现Runnable接口" class="headerlink" title="通过实现Runnable接口"></a>通过实现Runnable接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	String threadName;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ThreadTest</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Making thread:"</span>+s);</span><br><span class="line">		threadName = s;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ )&#123;</span><br><span class="line">			System.out.println(<span class="string">"Running thread number ="</span> + threadName);</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">1000</span>); <span class="comment">//让线程睡眠1秒</span></span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//主线程，操作系统调度每个线程执行</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//创建线程Tom和线程Jack</span></span><br><span class="line">		Thread thread1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> ThreadTest(<span class="string">"Tom"</span>)); </span><br><span class="line">		Thread thread2 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> ThreadTest(<span class="string">"Jack"</span>)); </span><br><span class="line">		</span><br><span class="line">		<span class="comment">/**线程启动，不是直接调用 run() 方法，而是调运线程类 Thread 的 start() 方法，</span></span><br><span class="line"><span class="comment">		*在 Thread 方法内部会调用本地系统方法，最终会自动调用自己线程类的 run()方法。</span></span><br><span class="line"><span class="comment">		**/</span></span><br><span class="line">		thread1.start(); </span><br><span class="line">		thread2.start();</span><br><span class="line">		System.out.println(<span class="string">"End of main"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>运行截图</strong></p>
+<p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E5%AE%9E%E7%8E%B0Runnable.png" alt></p>
+<h3 id="通过实现Callable接口"><a href="#通过实现Callable接口" class="headerlink" title="通过实现Callable接口"></a>通过实现Callable接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Integer</span>&gt;</span>&#123;</span><br><span class="line">	</span><br><span class="line">	String threadName;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ThreadTest</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Making thread:"</span>+s);</span><br><span class="line">		threadName = s;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ )&#123;</span><br><span class="line">			System.out.println(threadName+i);</span><br><span class="line">			sum += i;	</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//创建两个线程,并且启动</span></span><br><span class="line">		ThreadTest threadTest1 = <span class="keyword">new</span> ThreadTest(<span class="string">"Tom"</span>);</span><br><span class="line">		ThreadTest threadTest2 = <span class="keyword">new</span> ThreadTest(<span class="string">"Jack"</span>);</span><br><span class="line">		</span><br><span class="line">		FutureTask&lt;Integer&gt; result1 = <span class="keyword">new</span> FutureTask&lt;&gt;(threadTest1);</span><br><span class="line">		<span class="keyword">new</span> Thread(result1).start();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">     	FutureTask&lt;Integer&gt; result2 = <span class="keyword">new</span> FutureTask&lt;&gt;(threadTest2);</span><br><span class="line">		<span class="keyword">new</span> Thread(result2).start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>运行截图</strong></p>
+<p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E5%AE%9E%E7%8E%B0Callable.png" alt></p>
+<h2 id="线程类型分类"><a href="#线程类型分类" class="headerlink" title="线程类型分类"></a>线程类型分类</h2><p>java中线程一共有两种类型，守护线程和用户线程，用户线程又叫非守护线程。</p>
+<ul>
+<li>守护线程</li>
 </ul>
-<h3 id="设计模式的发展"><a href="#设计模式的发展" class="headerlink" title="设计模式的发展"></a>设计模式的发展</h3><ul>
-<li>20世纪80年代末，软件工程界开始关注ChristopherAlexander等在这一住宅、公共建筑与城市规划领域的重大突破；</li>
-<li>“四人组(Gang of Four，GoF，分别是Erich Gamma, Richard Helm, Ralph Johnson和John Vlissides)”于1994年归纳发表了23种在软件开发中使用频率较高的设计模式，旨在用模式来统一沟通面向对象方法在分析、设计和实现间的鸿沟。</li>
+<p>可以通过<code>thread.setDaemon(true)</code>方法设置线程是否为守护线程，<code>thread.setDaemon(true)</code>必须在<code>thread.start()</code>之前设置，否则会抛出<code>IllegalThreadStateException</code>异常。在守护线程中开启的新线程也是守护线程。守护线程顾名思义是用来守护的，是给所有的非守护线程提供服务的，所以在<code>JVM</code>执行完所有的非守护线程后，<code>JVM</code>就会停止，守护线程也不在运行，最典型的守护线程就是java的垃圾回收机制（<code>GC</code>）。</p>
+<ul>
+<li>非守护线程</li>
 </ul>
-<h2 id="设计模式的定义与GoF23种设计模式"><a href="#设计模式的定义与GoF23种设计模式" class="headerlink" title="设计模式的定义与GoF23种设计模式"></a>设计模式的定义与GoF23种设计模式</h2><h3 id="设计模式的定义"><a href="#设计模式的定义" class="headerlink" title="设计模式的定义"></a>设计模式的定义</h3><p><strong>Alexander给出了关于模式的经典定义：</strong></p>
-<p>&emsp;&emsp;&emsp;每个模式都描述了一个在我们的环境中不断出现的问题，然后描述了该问题的解决方案的核心，通过这种方式，人们可以无数次地重用那些已有的解决方案，无须再重复相同的工作。</p>
-<p><strong>通俗理解：</strong>模式是<strong>在特定环境下</strong>人们解决某类重复出现<strong>问题</strong>的一套成功或有效的<strong>解决方案</strong>。</p>
-<h3 id="GoF23种设计模式"><a href="#GoF23种设计模式" class="headerlink" title="GoF23种设计模式"></a>GoF23种设计模式</h3><p><img src="https://yohope-1259678199.cos.ap-guangzhou.myqcloud.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E7%B1%BB.png" alt></p>
-<p><strong><em>备注：创建型模式主要是用于创建对象，结构性模式主要用于处理类或对象的组合，行为型模式主要用于描述类或对象怎样交互和怎样分配职责</em></strong></p>
-<h2 id="设计模式的优点"><a href="#设计模式的优点" class="headerlink" title="设计模式的优点"></a>设计模式的优点</h2><ul>
-<li>融合了众多专家的经验，并以一种标准的形式供广大开发人员所用；</li>
-<li>提供了一套通用的设计词汇和一种通用的语言，以方便开发人员之间进行沟通和交流，使得设计方案更加通俗易懂；</li>
-<li>让人们可以更加简单方便地复用成功的设计和体系结构；</li>
-<li>使得设计方案更加灵活，且易于修改；</li>
-<li>将提高软件系统的开发效率和软件质量，且在一定程度上节约设计成本；</li>
-<li>有助于初学者更深入地理解面向对象思想，方便阅读和学习现有类库与其他系统中的源代码，还可以提高软件的设计水平和代码质量。</li>
-</ul>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>&emsp;&emsp;&emsp;本文只是对设计模式进行了一个概述，具体常用的23种设计模式需要读者业余时间慢慢学习，同时需要知道的是在将来的软件设计与开发中使用设计模式，是一个成功的软件工程师必备的技能，这也正是我们学习设计模式的目的。</p>
-<p><strong>参考资料：Java设计模式——刘伟编著</strong></p>
+<p>java线程默认设置为非守护线程<code>thread.setDaemon(false)</code>。当主线程运行完之后，只要主线程里有非守护线程<code>JVM</code>就互惠退出，直到所有的非守护线程执行完之后<code>JVM</code>才会退出。、</p>
+<blockquote>
+<p>总结：如果把一个线程设置成守护线程，则JVM的退出就不会关心当前线程的执行状态。</p>
+</blockquote>
 
       
     </div>
@@ -584,7 +566,7 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
           
         </div>
       
@@ -597,8 +579,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/02/Java开发环境搭建/" rel="next" title="Java开发环境搭建">
-                <i class="fa fa-chevron-left"></i> Java开发环境搭建
+              <a href="/2019/08/08/YAML语法/" rel="next" title="YAML语法">
+                <i class="fa fa-chevron-left"></i> YAML语法
               </a>
             
           </div>
@@ -606,10 +588,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/06/Java多线程单例模式/" rel="prev" title="Java多线程单例模式">
-                Java多线程单例模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -879,7 +857,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.1.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从两个实例说起："><span class="nav-number">1.1.1.</span> <span class="nav-text">从两个实例说起：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-实例一"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1. 实例一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-实例二"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">2. 实例二</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式的诞生与发展"><span class="nav-number">1.2.</span> <span class="nav-text">设计模式的诞生与发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式的诞生"><span class="nav-number">1.2.1.</span> <span class="nav-text">设计模式的诞生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式的发展"><span class="nav-number">1.2.2.</span> <span class="nav-text">设计模式的发展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式的定义与GoF23种设计模式"><span class="nav-number">1.3.</span> <span class="nav-text">设计模式的定义与GoF23种设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式的定义"><span class="nav-number">1.3.1.</span> <span class="nav-text">设计模式的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GoF23种设计模式"><span class="nav-number">1.3.2.</span> <span class="nav-text">GoF23种设计模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式的优点"><span class="nav-number">1.4.</span> <span class="nav-text">设计模式的优点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">2.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程概念"><span class="nav-number">1.1.</span> <span class="nav-text">线程概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程和进程的区别"><span class="nav-number">1.1.1.</span> <span class="nav-text">线程和进程的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的生命周期"><span class="nav-number">1.2.</span> <span class="nav-text">线程的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建线程的三种方式"><span class="nav-number">1.3.</span> <span class="nav-text">创建线程的三种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过继承Thread类"><span class="nav-number">1.3.1.</span> <span class="nav-text">通过继承Thread类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过实现Runnable接口"><span class="nav-number">1.3.2.</span> <span class="nav-text">通过实现Runnable接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过实现Callable接口"><span class="nav-number">1.3.3.</span> <span class="nav-text">通过实现Callable接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程类型分类"><span class="nav-number">1.4.</span> <span class="nav-text">线程类型分类</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1058,7 +1036,7 @@
 
 <script>
   window.livereOptions = {
-    refer: '2019/07/03/浅谈设计模式/'
+    refer: '2019/08/27/Java创建多线程的三种方式/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
