@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用MySQL的异常错误]]></title>
+    <url>%2F2019%2F09%2F28%2F%E4%BD%BF%E7%94%A8MySQL%E7%9A%84%E5%BC%82%E5%B8%B8%E9%94%99%E8%AF%AF%2F</url>
+    <content type="text"><![CDATA[问题今天连接MySQL数据库时控制台突然报错，显示为： 1java.sql.SQLException: The server time zone value '�й���׼ʱ��' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support. 这里可以看出是时间区域的问题。 解决方法在配置数据库的连接信息中，在MySQL的URL后面加上“?serverTimezone=UTC“，即是： 1spring.datasource.url=jdbc:mysql://localhost:3306/spring_cache?serverTimezone=UTC]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java创建多线程的三种方式]]></title>
     <url>%2F2019%2F08%2F27%2FJava%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[前言这篇文章主要讲述线程的概念、组成、Java创建多线程的三种方式以及线程的类型。 线程概念线程和进程的区别进程：正在运行的程序，例如：你打开 的qq音乐.exe程序，其由PCB（进程控制块）、栈、程序、数据组成。 线程：是一个进程中的程序代码的一个执行序列，被认为是带有自己的程序代码和数据的虚拟处理机的封装，其由处理机、代码、数据三部分组成，你可以这样理解线程是在进程内部同时做的事情，比如你在qq音乐应用里可以一边听音乐、同时下载音乐。这就是由多线程来实现的。（一个进程至少包含一个或者多个线程） 注意： 每个Java程序都有一个隐含的主线程，即main()方法，要实现多线程必须在主线程中创建新的线程，Java语言使用Thread类及其子类的对象来表示线程； 一个虚拟处理机封装在java.lang.Thread类中，它控制着整个线程的运行；CPU执行的代码传递给Thread类，由Thread类控制顺序执行；处理的数据传递给Thread类，是在代码执行的过程中所要处理的数据。代码和数据可以由多个线程共享，也可以不被共享，代码和数据是相互独立的，当两个线程共享同一个类的实例时，他们就共享相同的代码；当两个线程共享一个公共对象的存取时，他们就共享相同的数据。 线程的生命周期一个线程从它被创建到停止执行要经历一个完整的生命周期，在这个生命周期中有4种不同的状态。 ①New（新） ②Runnable（可运行） ③Blocked（被阻塞） ④Dead（死亡） 创建线程的三种方式通过继承Thread类12345678910111213141516171819202122232425262728293031323334353637package thread;public class ThreadTest extends Thread&#123; String threadName; public ThreadTest1(String s)&#123; System.out.println("Making thread:"+s); threadName = s; &#125; public void run()&#123; for( int i = 0; i &lt; 3; i++ )&#123; System.out.println("Running thread number =" + threadName); try &#123; Thread.sleep(1000); //线程睡眠1秒 &#125; catch (InterruptedException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; &#125; &#125; //主线程，操作系统调度每个线程执行 public static void main(String[] args)&#123; ThreadTest1 thread1 = new ThreadTest1("Tom"); //线程1Tom ThreadTest1 thread2 = new ThreadTest1("Jack"); //线程2Jack /**线程启动，不是直接调用 run() 方法，而是调运线程类 Thread 的 start() 方法， *在 Thread 方法内部会调用本地系统方法，最终会自动调用自己线程类的 run()方法。 **/ thread1.start(); thread2.start(); System.out.println("End of main"); &#125;&#125; 运行截图 通过实现Runnable接口123456789101112131415161718192021222324252627282930313233343536373839package thread;public class ThreadTest implements Runnable&#123; String threadName; public ThreadTest(String s)&#123; System.out.println("Making thread:"+s); threadName = s; &#125; public void run()&#123; for( int i = 0; i &lt; 3; i++ )&#123; System.out.println("Running thread number =" + threadName); try &#123; Thread.sleep(1000); //让线程睡眠1秒 &#125; catch (InterruptedException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; &#125; &#125; //主线程，操作系统调度每个线程执行 public static void main(String[] args)&#123; //创建线程Tom和线程Jack Thread thread1 = new Thread(new ThreadTest("Tom")); Thread thread2 = new Thread(new ThreadTest("Jack")); /**线程启动，不是直接调用 run() 方法，而是调运线程类 Thread 的 start() 方法， *在 Thread 方法内部会调用本地系统方法，最终会自动调用自己线程类的 run()方法。 **/ thread1.start(); thread2.start(); System.out.println("End of main"); &#125;&#125; 运行截图 通过实现Callable接口12345678910111213141516171819202122232425262728293031323334353637383940package thread;import java.util.concurrent.Callable;import java.util.concurrent.FutureTask;public class ThreadTest implements Callable&lt;Integer&gt;&#123; String threadName; public ThreadTest(String s) &#123; System.out.println("Making thread:"+s); threadName = s; &#125; @Override public Integer call() throws Exception &#123; int sum = 0; // TODO Auto-generated method stub for( int i = 0; i &lt; 5; i++ )&#123; System.out.println(threadName+i); sum += i; &#125; return sum; &#125; public static void main(String args[])&#123; //创建两个线程,并且启动 ThreadTest threadTest1 = new ThreadTest("Tom"); ThreadTest threadTest2 = new ThreadTest("Jack"); FutureTask&lt;Integer&gt; result1 = new FutureTask&lt;&gt;(threadTest1); new Thread(result1).start(); FutureTask&lt;Integer&gt; result2 = new FutureTask&lt;&gt;(threadTest2); new Thread(result2).start(); &#125;&#125; 运行截图 线程类型分类java中线程一共有两种类型，守护线程和用户线程，用户线程又叫非守护线程。 守护线程 可以通过thread.setDaemon(true)方法设置线程是否为守护线程，thread.setDaemon(true)必须在thread.start()之前设置，否则会抛出IllegalThreadStateException异常。在守护线程中开启的新线程也是守护线程。守护线程顾名思义是用来守护的，是给所有的非守护线程提供服务的，所以在JVM执行完所有的非守护线程后，JVM就会停止，守护线程也不在运行，最典型的守护线程就是java的垃圾回收机制（GC）。 非守护线程 java线程默认设置为非守护线程thread.setDaemon(false)。当主线程运行完之后，只要主线程里有非守护线程JVM就互惠退出，直到所有的非守护线程执行完之后JVM才会退出。、 总结：如果把一个线程设置成守护线程，则JVM的退出就不会关心当前线程的执行状态。]]></content>
@@ -8,8 +20,8 @@
         <category>多线程</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>多线程</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -79,9 +91,9 @@
         <category>设计模式</category>
       </categories>
       <tags>
+        <tag>多线程</tag>
         <tag>Java</tag>
         <tag>单例模式</tag>
-        <tag>多线程</tag>
       </tags>
   </entry>
   <entry>
