@@ -101,18 +101,18 @@
 
 
 
-  <meta name="description" content="前言本文章主要讲述String、StringBuffer、StringBuilder的区别。 共同点1、StringBuilder与StringBuffer有公共父类AbstractStringBuilder(抽象类)。2、StringBuilder、StringBuffer的方法都会调用AbstractStringBuilder中的公共方法，如super.append(…)。只是 StringB">
+  <meta name="description" content="前言本文章主要讲述String、StringBuffer、StringBuilder的区别。 共同点 StringBuilder与StringBuffer有公共父类AbstractStringBuilder(抽象类)。 StringBuilder、StringBuffer的方法都会调用AbstractStringBuilder中的公共方法，如super.append(…)。只是 StringBuf">
 <meta name="keywords" content="字符串,String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String、StringBuffer、StringBuilder的区别">
 <meta property="og:url" content="http://YoHope99.github.io/2019/11/23/String、StringBuffer、StringBuilder的区别/index.html">
 <meta property="og:site_name" content="YoHope">
-<meta property="og:description" content="前言本文章主要讲述String、StringBuffer、StringBuilder的区别。 共同点1、StringBuilder与StringBuffer有公共父类AbstractStringBuilder(抽象类)。2、StringBuilder、StringBuffer的方法都会调用AbstractStringBuilder中的公共方法，如super.append(…)。只是 StringB">
+<meta property="og:description" content="前言本文章主要讲述String、StringBuffer、StringBuilder的区别。 共同点 StringBuilder与StringBuffer有公共父类AbstractStringBuilder(抽象类)。 StringBuilder、StringBuffer的方法都会调用AbstractStringBuilder中的公共方法，如super.append(…)。只是 StringBuf">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-23T12:11:40.226Z">
+<meta property="og:updated_time" content="2019-11-23T12:23:51.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String、StringBuffer、StringBuilder的区别">
-<meta name="twitter:description" content="前言本文章主要讲述String、StringBuffer、StringBuilder的区别。 共同点1、StringBuilder与StringBuffer有公共父类AbstractStringBuilder(抽象类)。2、StringBuilder、StringBuffer的方法都会调用AbstractStringBuilder中的公共方法，如super.append(…)。只是 StringB">
+<meta name="twitter:description" content="前言本文章主要讲述String、StringBuffer、StringBuilder的区别。 共同点 StringBuilder与StringBuffer有公共父类AbstractStringBuilder(抽象类)。 StringBuilder、StringBuffer的方法都会调用AbstractStringBuilder中的公共方法，如super.append(…)。只是 StringBuf">
 
 
 
@@ -421,7 +421,7 @@
                 
               
 
-              <time title="创建时间：2019-11-23 19:42:50 / 修改时间：20:11:40" itemprop="dateCreated datePublished" datetime="2019-11-23T19:42:50+08:00">2019-11-23</time>
+              <time title="创建时间：2019-11-23 19:42:50 / 修改时间：20:23:51" itemprop="dateCreated datePublished" datetime="2019-11-23T19:42:50+08:00">2019-11-23</time>
             </span>
           
 
@@ -479,7 +479,10 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文章主要讲述<code>String、StringBuffer、StringBuilder</code>的区别。</p>
-<h2 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h2><p>1、StringBuilder与StringBuffer有公共父类AbstractStringBuilder(抽象类)。<br>2、StringBuilder、StringBuffer的方法都会调用AbstractStringBuilder中的公共方法，如super.append(…)。只是 StringBuffer 会在方法上加 <strong>synchronized</strong> 关键字，进行同步。因此，如果程序不是多线程的，那么使用StringBuilder效率高于StringBuffer。</p>
+<h2 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h2><ul>
+<li>StringBuilder与StringBuffer有公共父类AbstractStringBuilder(抽象类)。</li>
+<li>StringBuilder、StringBuffer的方法都会调用AbstractStringBuilder中的公共方法，如super.append(…)。只是 StringBuffer 会在方法上加 <strong>synchronized</strong> 关键字，进行同步。因此，如果程序不是多线程的，那么使用StringBuilder效率高于StringBuffer。</li>
+</ul>
 <a id="more"></a>
 
 <h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><h3 id="可变不可变"><a href="#可变不可变" class="headerlink" title="可变不可变"></a>可变不可变</h3><ul>
