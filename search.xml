@@ -32,8 +32,8 @@
         <category>多线程</category>
       </categories>
       <tags>
-        <tag>多线程</tag>
         <tag>Java</tag>
+        <tag>多线程</tag>
       </tags>
   </entry>
   <entry>
@@ -103,9 +103,9 @@
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>多线程</tag>
         <tag>Java</tag>
         <tag>单例模式</tag>
+        <tag>多线程</tag>
       </tags>
   </entry>
   <entry>
